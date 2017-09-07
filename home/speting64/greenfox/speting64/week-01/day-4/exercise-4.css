@@ -1,0 +1,38 @@
+body :nth-child(1){
+    font-family: 'Times New Roman', Times, serif;
+    color: #E2B361;
+    font-size: 36px;
+}
+
+body :nth-child(2){
+    
+    
+    color: #000000;
+    /*border : 3px solid #4285F4;*/    
+    font-family: Courier New, Courier, monospace;
+    padding-left: 20px;
+       
+    
+}
+
+body :nth-child(3){
+    
+    
+    color: #000000;
+    /*border : 3px solid #4285F4;*/    
+    font-family: Courier New, Courier, monospace;
+    padding-left: 40px;
+       
+    
+}
+
+body :nth-child(4){
+    
+    
+    color: #000000;
+    /*border : 3px solid #4285F4;*/    
+    font-family: Courier New, Courier, monospace;
+    padding-left: 20px;
+       
+    
+}
