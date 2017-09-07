@@ -1,0 +1,47 @@
+
+
+div
+{
+    
+    width: 300px;
+    border: solid;
+    height: 200px;
+    margin: 10px;
+    border:  10px solid #4285F4;
+    text-align: center;
+             
+     
+}
+
+.north
+{
+    background-color: #E67676;
+    
+
+}
+
+.south
+{
+    background-color: #A9E6E6
+}
+
+p
+
+{
+    
+    display: block;
+    color:#ffffff;
+    /*border : 3px solid #4285F4;*/
+    margin:auto;
+    font-size:36px;
+    padding-top: 20px;
+    font-family: sans-serif;
+    padding-bottom: 40px;
+
+    
+    
+}
+
+
+
+
