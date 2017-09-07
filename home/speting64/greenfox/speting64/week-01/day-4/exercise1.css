@@ -1,0 +1,12 @@
+.block-level
+{
+    margin: 10px 10px 10px 5px;
+    padding: 10px;
+    color: #00556D;
+    background-color : #0E91A1;
+    font-size: 36px;
+    height: 125px;
+    width: 400px;
+    border: 5px solid #7DCE94;
+    font-family: sans-serif;    
+}
