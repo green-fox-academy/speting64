@@ -1,0 +1,197 @@
+
+.background
+{
+    width: 540px;
+    height :950px;
+    margin: 0px auto;
+    background-color: rgb(220,214,205);
+    box-sizing: border-box;
+}
+
+
+.header
+{
+    width: 540px;
+    height: 50px;
+    border : 10px solid rgb(255, 18, 0);
+    background-color : rgb(255, 228, 46);
+    box-sizing: border-box;
+    margin-top: 10px;
+    margin-bottom: 10px;
+    
+    
+}
+
+.column
+
+{
+    
+    width: 540px;
+    height: 400px;    
+    margin-bottom: 10px;
+    
+}
+
+.left
+{
+    display: inline-block;
+    width: 245px;
+    height: 400px;
+    border : 10px solid rgb(255, 18, 0);
+    background-color : rgb(255, 228, 46);     
+    float : left;
+    margin-left: 5px;
+    
+}
+
+.right
+{ 
+    display: inline-block;
+    width: 245px;
+    height: 400px;
+    border : 10px solid rgb(255, 18, 0);
+    background-color : rgb(255, 228, 46);     
+    float: right;
+    margin-right: 5px;
+   
+}
+
+.intro
+
+{
+
+    width: 540px;
+    height: 300px;
+    border : 20px solid rgb(255, 18, 0);
+    background-color : green;
+    box-sizing: border-box;    
+    margin-bottom: 20px;
+    margin-top : 40px;
+
+}
+
+.header h2
+{
+    margin-top:5px;
+    font-family: Arial, Helvetica, sans-serif;
+}
+
+.name
+
+{
+    padding: 10px;
+}
+
+.label {
+    /* To make sure that all labels have the same size and are properly aligned */
+    display: inline-block;
+    width: 90px;
+    text-align: right;
+  }
+
+  .submit
+  
+  {
+  
+      width: 540px;
+      height: 200px;
+      border : 20px solid rgb(255, 18, 0);
+      background-color : green;
+      box-sizing: border-box;    
+      margin-bottom: 10px;
+      margin-top : 40px;
+  
+  }
+
+  .submit1
+  {
+      display: inline-block;
+      width: 220px;
+      height: 100px;
+      border : 10px solid rgb(255, 18, 0);
+      background-color : rgb(255, 228, 46);     
+      float : left;
+      margin-left: 5px;
+      
+  }
+  
+  .submit2
+  { 
+      display: inline-block;
+      width: 220px;
+      height: 100px;
+      border : 10px solid rgb(255, 18, 0);
+      background-color : rgb(255, 228, 46);     
+      float: right;
+      margin-right: 5px;
+     
+  }
+
+/*
+div > div
+
+{
+    width: 560px;
+    height: 100px;
+    background-color : rgb(255, 18, 0);
+}
+
+div > div:nth-child(1)
+
+{
+    width: 560px;
+    height: 50px;
+    border : 5px solid rgb(255, 18, 0);
+    background-color: green;
+    
+}
+
+
+
+div > div:nth-child(2)
+
+{
+    width: 560px;
+    height: 100px;
+    border : 5px solid rgb(255, 18, 0);
+    background-color : rgb(255, 228, 46);
+    
+    
+}
+
+div > div:nth-child(3)
+
+{
+    width: 560px;
+    height: 50px;
+    border : 5px solid rgb(255, 18, 0);
+    background-color : green;
+    
+}
+
+div > div:nth-child(4)
+
+{
+    width: 560px;
+    height: 300px;
+    border : 5px solid rgb(255, 18, 0);
+    background-color : rgb(255, 228, 46);
+}
+
+.innerbox
+{
+    display: inline-block;
+}
+
+div > div:nth-child(5)
+
+{
+    width: 560px;
+    height: 75px;
+    border : 5px solid green;
+    background-color: rgb(255, 18, 0);
+    
+    
+}
+*/
+

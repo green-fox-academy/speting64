@@ -1,0 +1,76 @@
+<!DOCTYPE html>
+
+<html>
+
+    <head>
+
+        <meta charset="utf-8">
+        <title> Form Trial </title>
+        <link type = "text/css" rel="stylesheet" href= "form.css">
+    
+    </head>
+
+    <body>
+        
+        <form>
+            <div class = "background">
+
+                <div class = "header">
+                    <h2>Profil</h2>
+                </div>            
+                
+                <div class= "column">
+                    
+                    <div class = "column left"> 
+                        <div class = "Left box">
+                            <label for = "name">Személyes adatok</label></br>
+                            <label for="name">Név*</label></br>
+                            <input type="text" id="name" name="user_name" placeholder="Név"> </br>                                            
+                        </div>           
+                    </div>             
+               
+                    <div class = "column right">
+                            <label for = "name">Kapcsolat</label></br>
+                            <label for="name">Telefonszám*</label></br>
+                            <input type="tel" name="fname" placeholder="+36 -- --- ----" required></br>
+                            <label for="name">E-mail*</label></br>
+                            <input type="email" name="fname" placeholder="nev@domain.hu" required></br>
+                            <label for="name">Facebook-profil*</label></br>
+                            <input type="email" name="fname" placeholder="https://facebook.com" ></br>
+                            <label for="name">Twitter-profil*</label></br>
+                            <input type="email" name="fname" placeholder="https://twitter.com" ></br>
+                            <fieldset>
+                                <legend >Milyen házban laksz?*</legend></br>
+                                
+
+                                <select placeholder = "Milyen házban laksz?">
+                                    <option>Ház</option>
+                                    <option>Lakás</option>
+                                </select>
+                            </fieldset>
+                            
+
+                    </div>
+                </div>
+
+                <div class = "intro">
+                    <div class = "introduction">
+                        <label for="msg">Bemutatkozás:</label></br>
+                        <textarea id="msg" name="user_message" rows="10" cols="30"  placeholder = "Írj magadról pár mondatot"></textarea>
+                    </div>
+                </div> 
+
+                <div class = "submit">
+                    <div class= "submit1" >
+
+                    </div>
+                    <div class = "submit2">
+                    </div>
+                </div>                       
+            </div>
+        </form>
+    </body>
+
+</html>
+
+
