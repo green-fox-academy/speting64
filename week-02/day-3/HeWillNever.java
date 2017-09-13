@@ -16,10 +16,7 @@ public class HeWillNever {
 
         HashMap<Integer, String> hmap = new HashMap<Integer, String>();
 
-        for(int i =0; i < notSoCrypticMessage[].length(); i++){
 
-            hmap.put(notSoCrypticMessage[]);
-        }
 
         System.out.println(hmap);
 
@@ -31,6 +28,12 @@ public class HeWillNever {
         hmap.put(1, "Never gonna");
         hmap.put(11, "\n");
         hmap.put(3, "say goodbye");
+
+        for(int i =0; i < notSoCrypticMessage.length; i++){
+
+            out = hmap.get(notSoCrypticMessage[i]);
+            System.out.println(out);
+        }
 
 
         /*
