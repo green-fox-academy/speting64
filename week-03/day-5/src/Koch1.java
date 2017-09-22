@@ -20,8 +20,13 @@ public class Koch1 {
 
     public static void kochDraw(Graphics graphics, int depth , int x1 , int y1 , int x5, int y5){
 
+        Random rand = new Random();
+        float r = rand.nextFloat();
+        float g = rand.nextFloat();
+        float b = rand.nextFloat();
         int dx,dy,x2,y2,x3,y3,x4,y4;
         if (depth==1){
+            graphics.setColor(new Color(r, g, b));
             graphics.drawLine(x1,y1,x5,y5);
         }
         else{
@@ -33,7 +38,7 @@ public class Koch1 {
             y3 = (int)((y1 + y5) / 2 + (Math.sqrt(3.0) / 6) * (x5 - x1));
             x4 = x1 + dx * 2 / 3;
             y4 = y1 + dy * 2 / 3;
-
+            graphics.setColor(new Color(r, g, b));
             kochDraw(graphics,depth-1, x1 , y1, x2 , y2);
             kochDraw(graphics,depth-1, x2 , y2, x3 , y3);
             kochDraw(graphics,depth-1, x3 , y3, x4 , y4);
