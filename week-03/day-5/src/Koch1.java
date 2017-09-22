@@ -6,7 +6,7 @@ import java.util.Random;
 public class Koch1 {
 
     public static void mainDraw(Graphics graphics){
-        int depth = 9;
+        int depth = 7;
         int x1 = 20;
         int y1 = 280;
         int x2 = 160;
