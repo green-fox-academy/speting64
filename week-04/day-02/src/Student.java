@@ -33,9 +33,13 @@ public class Student {
 class Jane {
     public static void main(String[] args){
         Student jane = new Student();
+        jane.name = "Jane Doe";
+        jane.age = 30;
+        jane.gender = "Female";
         jane.introduce();
         jane.getGoal();
         jane.skipDays(2);
         System.out.println("Skipped days:"+ jane.skippedDays);
+        System.out.println("Name: "+ jane.name+ " Age: "+ jane.age + " Gender: "+ jane.gender);
     }
 }
