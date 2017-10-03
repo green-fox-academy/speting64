@@ -1,3 +1,4 @@
+import java.util.Arrays;
 import javax.swing.*;
 import java.awt.*;
 import java.awt.event.KeyEvent;
@@ -5,110 +6,80 @@ import java.awt.event.KeyListener;
 
 public class Board extends JComponent implements KeyListener {
 
-        int testBoxX;
-        int testBoxY;
-        String nextImage;
 
-        public Board() {
+    int heroPosX;
+    int heroPosY;
+    String heroImage ="assets/hero-down.png" ;
+    int[][] board ={
+                {0, 0, 0, 1, 0, 1, 0, 0, 0, 0},
+                {0, 0, 0, 1, 0, 1, 0, 1, 1, 0},
+                {0, 1, 1, 1, 0, 1, 0, 1, 1, 0},
+                {0, 0, 0, 0, 0, 1, 0, 0, 0, 0},
+                {1, 1, 1, 1, 0, 1, 1, 1, 1, 0},
+                {0, 1, 0, 1, 0, 0, 0, 0, 1, 0},
+                {0, 1, 0, 1, 0, 1, 1, 0, 1, 0},
+                {0, 0, 0, 0, 0, 1, 1, 0, 1, 0},
+                {0, 1, 1, 1, 0, 0, 0, 0, 1, 0},
+                {0, 0, 0, 1, 0, 1, 1, 0, 0, 0}
+        };
 
-            testBoxX = 0;
-            testBoxY = 0;
-            // set the size of your draw board
-            setPreferredSize(new Dimension(720, 720));
-            setVisible(true);
+    public Board() {
 
-            nextImage = "Assets/hero-down.png";
-        }
+        heroPosX = 0;
+        heroPosY = 0;
 
-        @Override
-        public void paint(Graphics graphics) {
-            super.paint(graphics);
-            //graphics.fillRect(testBoxX, testBoxY, 0, 0);
-            PositionedImage tile = new PositionedImage("Assets/floor.png",0 ,0 );
-            //tile.draw(graphics);
-            for (int i = 0; i < 10 ; i++) {
-                    for (int j = 0; j < 11 ; j++) {
-                        tile.posX = i * 72;
-                        tile.posY = j * 72;
-                        tile.draw(graphics);
-                    }
-            }
-            int walls[][] = new int[][]{
-                    {0,0,0,1,0,1,0,0,0,0},
-                    {0,0,0,1,0,1,0,1,1,0},
-                    {0,1,1,1,0,1,0,1,1,0},
-                    {0,0,0,0,0,1,0,0,0,0},
-                    {1,1,1,1,0,1,1,1,1,0},
-                    {0,1,0,1,0,0,0,0,1,0},
-                    {0,1,0,1,0,1,1,0,1,0},
-                    {0,0,0,0,0,1,1,0,1,0},
-                    {0,1,1,1,0,0,0,0,1,0},
-                    {0,0,0,1,0,1,1,0,1,0},
+        // set the size of your draw board
+        setPreferredSize(new Dimension(720, 720));
+        setVisible(true);
+    }
 
-            };
+    @Override
+    public void paint(Graphics graphics) {
+        super.paint(graphics);
 
-            for (int i = 0; i <walls.length ; i++) {
-                for (int j = 0; j <walls.length ; j++) {
-                    if(walls[i][j] == 1){
-                        PositionedImage wall = new PositionedImage("C:\\Users\\Viktorlukács\\Wanderer\\Assets\\wall.png",j*72 ,i*72 );
-                        wall.draw(graphics);
-                    }
+        for (int i = 0; i < 10; i++) {
+            for (int j = 0; j < 10; j++) {
+                PositionedImage floor = new PositionedImage("assets/floor.png", j, i);
+                PositionedImage wall = new PositionedImage("assets/wall.png", j, i);
+                if (board[i][j] == 0) {
+                    floor.draw(graphics);
+                } else if (board[i][j] == 1) {
+                    wall.draw(graphics);
                 }
             }
-            HeroPosition hero = new HeroPosition(nextImage, testBoxX, testBoxY);
-            hero.draw(graphics);
         }
+        PositionedImage hero = new PositionedImage(heroImage, heroPosX, heroPosY);
+        hero.draw(graphics);
+    }
+    @Override
+    public void keyTyped(KeyEvent e) {
 
-        public static void main(String[] args) {
-            // Here is how you set up a new window and adding our board to it
-            JFrame frame = new JFrame("RPG Game");
-            Board board = new Board();
-            frame.add(board);
-            frame.setDefaultCloseOperation(JFrame.EXIT_ON_CLOSE);
-            frame.setVisible(true);
-            frame.pack();
-            // Here is how you can add a key event listener
-            // The board object will be notified when hitting any key
-            // with the system calling one of the below 3 methods
-            frame.addKeyListener(board);
-            // Notice (at the top) that we can only do this
-            // because this Board class (the type of the board object) is also a KeyListener
+    }
+    @Override
+    public void keyPressed(KeyEvent e) {
+
+    }
+    // But actually we can use just this one for our goals here
+    @Override
+    public void keyReleased(KeyEvent e) {
+        // When the up or down keys hit, we change the position of our box
+        if (e.getKeyCode() == KeyEvent.VK_UP && board[heroPosY-1][heroPosX] !=1) {
+            heroPosY -= 1;
+            heroImage = "assets/hero-up.png";
+        } else if(e.getKeyCode() == KeyEvent.VK_DOWN && board[heroPosY+1][heroPosX] !=1 ) {
+            heroPosY += 1;
+            heroImage = "assets/hero-down.png";
         }
-
-        // To be a KeyListener the class needs to have these 3 methods in it
-        @Override
-        public void keyTyped(KeyEvent e) {
-
+        else if(e.getKeyCode() == KeyEvent.VK_LEFT && board[heroPosY][heroPosX-1] !=1) {
+            heroPosX -= 1;
+            heroImage = "assets/hero-left.png";
         }
-
-        @Override
-        public void keyPressed(KeyEvent e) {
-
+        else if(e.getKeyCode() == KeyEvent.VK_RIGHT && board[heroPosY][heroPosX+1] !=1) {
+            heroPosX += 1;
+            heroImage = "assets/hero-right.png";
         }
-        // But actually we can use just this one for our goals here
-        @Override
-        public void keyReleased(KeyEvent e) {
-            // When the up or down keys hit, we change the position of our box
-            if (e.getKeyCode() == KeyEvent.VK_UP) {
-               nextImage = "Assets/hero-up.png";
-               testBoxY -= 72;
-
-            } else if (e.getKeyCode() == KeyEvent.VK_DOWN) {
-                nextImage = "Assets/hero-down.png";
-                testBoxY += 72;
-
-            }else if (e.getKeyCode() == KeyEvent.VK_LEFT) {
-                nextImage = "Assets/hero-left.png";
-                testBoxX -= 72;
-
-            }else if (e.getKeyCode() == KeyEvent.VK_RIGHT) {
-                nextImage = "Assets/hero-right.png";
-                testBoxX += 72;
-
-            }                // and redraw to have a new picture with the new coordinates
-            repaint();
-        }
+        // and redraw to have a new picture with the new coordinates
+        repaint();
+    }
 }
-
-
 
