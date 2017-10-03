@@ -7,9 +7,7 @@ public class Board extends JComponent implements KeyListener {
 
         int testBoxX;
         int testBoxY;
-        int heroPosX;
-        int heroPosY;
-        String filename;
+        String nextImage;
 
         public Board() {
 
@@ -18,6 +16,8 @@ public class Board extends JComponent implements KeyListener {
             // set the size of your draw board
             setPreferredSize(new Dimension(720, 720));
             setVisible(true);
+
+            nextImage = "Assets/hero-down.png";
         }
 
         @Override
@@ -55,13 +55,7 @@ public class Board extends JComponent implements KeyListener {
                     }
                 }
             }
-            //graphics.fillRect(testBoxX, testBoxY, 100, 100);
-            //PositionedImage hero = new PositionedImage("Assets/hero-down.png", 0, 0);
-
-            HeroPosition hero = new HeroPosition("Assets/hero-down.png", testBoxX, testBoxY);
-            for (int i = 0; i < walls.length ; i++) {
-                hero.draw(graphics);
-            }
+            HeroPosition hero = new HeroPosition(nextImage, testBoxX, testBoxY);
             hero.draw(graphics);
         }
 
@@ -96,16 +90,19 @@ public class Board extends JComponent implements KeyListener {
         public void keyReleased(KeyEvent e) {
             // When the up or down keys hit, we change the position of our box
             if (e.getKeyCode() == KeyEvent.VK_UP) {
+               nextImage = "Assets/hero-up.png";
                testBoxY -= 72;
-               filename = "Assets/hero-up.png";
 
             } else if (e.getKeyCode() == KeyEvent.VK_DOWN) {
+                nextImage = "Assets/hero-down.png";
                 testBoxY += 72;
 
             }else if (e.getKeyCode() == KeyEvent.VK_LEFT) {
+                nextImage = "Assets/hero-left.png";
                 testBoxX -= 72;
 
             }else if (e.getKeyCode() == KeyEvent.VK_RIGHT) {
+                nextImage = "Assets/hero-right.png";
                 testBoxX += 72;
 
             }                // and redraw to have a new picture with the new coordinates
