@@ -24,16 +24,38 @@ public class Board extends JComponent implements KeyListener {
             PositionedImage tile = new PositionedImage("Assets/floor.png",0 ,0 );
             tile.draw(graphics);
             for (int i = 0; i < 10 ; i++) {
-                    for (int j = 0; j < 10 ; j++) {
+                    for (int j = 0; j < 11 ; j++) {
                         tile.posX = i * 72;
-                        tile.posY = j *72;
+                        tile.posY = j * 72;
                         tile.draw(graphics);
                     }
             }
+            int walls[][] = new int[][]{
+                    {0,0,0,1,0,1,0,0,0,0},
+                    {0,0,0,1,0,1,0,1,1,0},
+                    {0,1,1,1,0,1,0,1,1,0},
+                    {0,0,0,0,0,1,0,0,0,0},
+                    {1,1,1,1,0,1,1,1,1,0},
+                    {0,1,0,1,0,0,0,0,1,0},
+                    {0,1,0,1,0,1,1,0,1,0},
+                    {0,0,0,0,0,1,1,0,1,0},
+                    {0,1,1,1,0,0,0,0,1,0},
+                    {0,0,0,1,0,1,1,0,1,0},
+
+            };
+
+            for (int i = 0; i <walls.length ; i++) {
+                for (int j = 0; j <walls.length ; j++) {
+                    if(walls[i][j] == 1){
+                        PositionedImage wall = new PositionedImage("C:\\Users\\Viktorlukács\\Wanderer\\Assets\\wall.png",j*72 ,i*72 );
+                        wall.draw(graphics);
+                    }
+                }
+            }
+
             graphics.fillRect(testBoxX, testBoxY, 100, 100);
             PositionedImage image = new PositionedImage("Assets/hero-down.png", 0, 0);
             image.draw(graphics);
-
         }
 
         public static void main(String[] args) {
