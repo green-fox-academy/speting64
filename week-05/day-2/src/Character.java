@@ -9,7 +9,7 @@ public class Character {
 
     String image;
 
-    Turn roll = new Turn();
+    Turn d6 = new Turn();
 
     public Character(){
 

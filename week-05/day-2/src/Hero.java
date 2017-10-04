@@ -7,8 +7,8 @@ public class Hero extends PositionedImage {
 
     public Hero(){
         super("assets/hero-down.png",0,0);
-    }
 
+    }
     public void heroUp(){
         try {
             image = ImageIO.read(new File("assets/hero-up.png"));
@@ -41,6 +41,8 @@ public class Hero extends PositionedImage {
         }
     }
 
+
+/*
     public void movingUp() {
         this.posY -= 1;
         try {
@@ -75,5 +77,5 @@ public class Hero extends PositionedImage {
         } catch (IOException e) {
             e.printStackTrace();
         }
-    }
+    }*/
 }

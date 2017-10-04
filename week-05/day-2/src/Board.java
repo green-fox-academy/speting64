@@ -13,6 +13,7 @@ public class Board extends JComponent implements KeyListener {
     String heroImage ="assets/hero-down.png" ;
     Hero cloud;
     Skeleton skeleton1;
+    Skeleton skeleton2;
     Boss boss;
     List <Character> fiends;
     int[][] board ={
@@ -38,8 +39,9 @@ public class Board extends JComponent implements KeyListener {
         setVisible(true);
         cloud = new Hero();
         skeleton1 = new Skeleton();
+        skeleton2 = new Skeleton();
         boss = new Boss();
-        fiends = new ArrayList<>(Arrays.asList(skeleton1,boss));
+        fiends = new ArrayList<>(Arrays.asList(skeleton1,skeleton2,boss));
     }
 
     @Override
@@ -68,6 +70,8 @@ public class Board extends JComponent implements KeyListener {
 
         PositionedImage skel1 = new PositionedImage(skeleton1.image,skeleton1.x,skeleton1.y);
         skel1.draw(graphics);
+        PositionedImage skel2 = new PositionedImage(skeleton2.image,skeleton2.x,skeleton2.y);
+        skel2.draw(graphics);
         PositionedImage bossama = new PositionedImage(boss.image,boss.x,boss.y);
         bossama.draw(graphics);
 
