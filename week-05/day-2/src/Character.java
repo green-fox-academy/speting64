@@ -13,4 +13,12 @@ public class Character {
         this.defPoint = defPoint;
         this.strikePoint = strikePoint;
     }
+
+    public Boolean isDead(){
+
+        if(this.currentHP < 1){
+            return true;
+        }
+        return false;
+    }
 }

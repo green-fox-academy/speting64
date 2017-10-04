@@ -6,10 +6,10 @@ import java.awt.event.KeyListener;
 
 public class Board extends JComponent implements KeyListener {
 
-
     int heroPosX;
     int heroPosY;
     String heroImage ="assets/hero-down.png" ;
+    Hero cloud;
     int[][] board ={
                 {0, 0, 0, 1, 0, 1, 0, 0, 0, 0},
                 {0, 0, 0, 1, 0, 1, 0, 1, 1, 0},
@@ -31,6 +31,7 @@ public class Board extends JComponent implements KeyListener {
         // set the size of your draw board
         setPreferredSize(new Dimension(720, 720));
         setVisible(true);
+        cloud = new Hero();
     }
 
     @Override
@@ -48,8 +49,8 @@ public class Board extends JComponent implements KeyListener {
                 }
             }
         }
-        PositionedImage hero = new PositionedImage(heroImage, heroPosX, heroPosY);
-        hero.draw(graphics);
+        //PositionedImage cloud = new PositionedImage(heroImage, heroPosX, heroPosY);
+        cloud.draw(graphics);
     }
     @Override
     public void keyTyped(KeyEvent e) {
@@ -63,20 +64,24 @@ public class Board extends JComponent implements KeyListener {
     @Override
     public void keyReleased(KeyEvent e) {
         // When the up or down keys hit, we change the position of our box
-        if (e.getKeyCode() == KeyEvent.VK_UP && board[heroPosY-1][heroPosX] !=1) {
-            heroPosY -= 1;
-            heroImage = "assets/hero-up.png";
-        } else if(e.getKeyCode() == KeyEvent.VK_DOWN && board[heroPosY+1][heroPosX] !=1 ) {
-            heroPosY += 1;
-            heroImage = "assets/hero-down.png";
+        if (e.getKeyCode() == KeyEvent.VK_UP && board[cloud.posY-1][cloud.posX] !=1) {
+            cloud.posY -= 1;
+            //heroImage = "assets/hero-up.png";
+            cloud.heroUp();
+        } else if(e.getKeyCode() == KeyEvent.VK_DOWN && board[cloud.posY+1][cloud.posX] !=1 ) {
+            cloud.posY += 1;
+            //heroImage = "assets/hero-down.png";
+            cloud.heroDown();
         }
-        else if(e.getKeyCode() == KeyEvent.VK_LEFT && board[heroPosY][heroPosX-1] !=1) {
-            heroPosX -= 1;
-            heroImage = "assets/hero-left.png";
+        else if(e.getKeyCode() == KeyEvent.VK_LEFT && board[cloud.posY][cloud.posX-1] !=1) {
+            cloud.posX -= 1;
+            //heroImage = "assets/hero-left.png";
+            cloud.heroLeft();
         }
-        else if(e.getKeyCode() == KeyEvent.VK_RIGHT && board[heroPosY][heroPosX+1] !=1) {
-            heroPosX += 1;
-            heroImage = "assets/hero-right.png";
+        else if(e.getKeyCode() == KeyEvent.VK_RIGHT && board[cloud.posY][cloud.posX+1] !=1) {
+            cloud.posX += 1;
+            //heroImage = "assets/hero-right.png";
+            cloud.heroRight();
         }
         // and redraw to have a new picture with the new coordinates
         repaint();
