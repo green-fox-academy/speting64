@@ -12,6 +12,7 @@ public class Board extends JComponent implements KeyListener {
     int heroPosY;
     String heroImage ="assets/hero-down.png" ;
     Hero cloud;
+    HeroStat stat;
     Skeleton skeleton1;
     Skeleton skeleton2;
     Boss boss;
@@ -41,6 +42,7 @@ public class Board extends JComponent implements KeyListener {
         skeleton1 = new Skeleton();
         skeleton2 = new Skeleton();
         boss = new Boss();
+        stat = new HeroStat();
         fiends = new ArrayList<>(Arrays.asList(skeleton1,skeleton2,boss));
     }
 
@@ -74,6 +76,11 @@ public class Board extends JComponent implements KeyListener {
         skel2.draw(graphics);
         PositionedImage bossama = new PositionedImage(boss.image,boss.x,boss.y);
         bossama.draw(graphics);
+
+        graphics.setColor(Color.YELLOW);
+        graphics.fillRect(0,700,400,30);
+        graphics.setColor(Color.BLACK);
+        graphics.drawString(stat.showStats(),10,707);
 
 
     }

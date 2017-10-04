@@ -4,6 +4,7 @@ public class Boss extends Character{
 
     int bossHP;
 
+
     public Boss(){
         super();
         maxHP = maxHP + 3*(d6.turn());
