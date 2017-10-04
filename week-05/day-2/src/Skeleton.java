@@ -1,15 +1,9 @@
 import java.awt.*;
 
-public class Skeleton extends PositionedImage{
+public class Skeleton extends Character{
+    public Skeleton(){
 
-    int skeletonTile;
-
-    public Skeleton(String filename , int posX , int posY){
-
-        super("assets/skeleton.png" , posX , posY);
-    }
-
-    public void moving(Graphics graphics){
-
+        super();
+        this.image = "assets/skeleton.png";
     }
 }

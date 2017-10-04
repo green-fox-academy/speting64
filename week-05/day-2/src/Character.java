@@ -4,6 +4,11 @@ public class Character {
     int currentHP;
     int defPoint;
     int strikePoint;
+    int x;
+    int y;
+
+    String image;
+
     Turn roll = new Turn();
 
     public Character(){
@@ -12,6 +17,15 @@ public class Character {
         this.currentHP = currentHP;
         this.defPoint = defPoint;
         this.strikePoint = strikePoint;
+
+        this.x = (int)(Math.random() * 10);
+        this.y = (int)(Math.random() * 10);
+    }
+
+    public void spawn(){
+
+        this.x = (int)(Math.random() * 10);
+        this.y = (int)(Math.random() * 10);
     }
 
     public Boolean isDead(){

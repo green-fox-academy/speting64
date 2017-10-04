@@ -1,15 +1,10 @@
 import java.awt.*;
 
-public class Boss extends PositionedImage{
+public class Boss extends Character{
 
-    int bossTile;
+    public Boss(){
 
-    public Boss(String filename , int posX , int posY){
-
-        super("assets/boss.png" , posX , posY);
-    }
-
-    public void moving(Graphics graphics){
-
+        super();
+        this.image = "assets/boss.png";
     }
 }

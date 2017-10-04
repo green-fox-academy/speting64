@@ -1,4 +1,6 @@
+import java.util.ArrayList;
 import java.util.Arrays;
+import java.util.List;
 import javax.swing.*;
 import java.awt.*;
 import java.awt.event.KeyEvent;
@@ -10,6 +12,9 @@ public class Board extends JComponent implements KeyListener {
     int heroPosY;
     String heroImage ="assets/hero-down.png" ;
     Hero cloud;
+    Skeleton skeleton1;
+    Boss boss;
+    List <Character> fiends;
     int[][] board ={
                 {0, 0, 0, 1, 0, 1, 0, 0, 0, 0},
                 {0, 0, 0, 1, 0, 1, 0, 1, 1, 0},
@@ -32,6 +37,9 @@ public class Board extends JComponent implements KeyListener {
         setPreferredSize(new Dimension(720, 720));
         setVisible(true);
         cloud = new Hero();
+        skeleton1 = new Skeleton();
+        boss = new Boss();
+        fiends = new ArrayList<>(Arrays.asList(skeleton1,boss));
     }
 
     @Override
@@ -51,6 +59,19 @@ public class Board extends JComponent implements KeyListener {
         }
         //PositionedImage cloud = new PositionedImage(heroImage, heroPosX, heroPosY);
         cloud.draw(graphics);
+
+        for (Character c :fiends){
+            while(board[c.y][c.x] !=0){
+                c.spawn();
+            }
+        }
+
+        PositionedImage skel1 = new PositionedImage(skeleton1.image,skeleton1.x,skeleton1.y);
+        skel1.draw(graphics);
+        PositionedImage bossama = new PositionedImage(boss.image,boss.x,boss.y);
+        bossama.draw(graphics);
+
+
     }
     @Override
     public void keyTyped(KeyEvent e) {
