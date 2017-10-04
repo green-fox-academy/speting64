@@ -7,8 +7,9 @@ public class HeroStat extends Character {
         this.setDefPoint(2 * (d6.turn()));
         this.setStrikePoint(5 + d6.turn());
     }
-        public String showStats(){
-            return "Hero (Level:" + getLevel() + "/ HP:" + getCurrentHP() + "/" + getMaxHP() + "| DP: " + getDefPoint() + "| SP: " + getStrikePoint();
+    public String showStats(){
+
+        return "Hero (Level: " + getLevel() + "| HP: " + getCurrentHP() + "/" + getMaxHP() + "| DP: " + getDefPoint() + "| SP: " + getStrikePoint() + ")";
     }
 
 }

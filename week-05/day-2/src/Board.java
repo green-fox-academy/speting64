@@ -8,6 +8,7 @@ import java.awt.event.KeyListener;
 
 public class Board extends JComponent implements KeyListener {
 
+    int mapSize;
     int heroPosX;
     int heroPosY;
     String heroImage ="assets/hero-down.png" ;
@@ -35,9 +36,12 @@ public class Board extends JComponent implements KeyListener {
         heroPosX = 0;
         heroPosY = 0;
 
+
         // set the size of your draw board
-        setPreferredSize(new Dimension(720, 720));
+        this.mapSize = 720;
+        setPreferredSize(new Dimension(mapSize, 800));
         setVisible(true);
+
         cloud = new Hero();
         skeleton1 = new Skeleton();
         skeleton2 = new Skeleton();
@@ -77,10 +81,13 @@ public class Board extends JComponent implements KeyListener {
         PositionedImage bossama = new PositionedImage(boss.image,boss.x,boss.y);
         bossama.draw(graphics);
 
-        graphics.setColor(Color.YELLOW);
-        graphics.fillRect(0,700,400,30);
+        graphics.setColor(Color.GRAY);
+
+        graphics.fillRect(730,350,300,30);
         graphics.setColor(Color.BLACK);
-        graphics.drawString(stat.showStats(),10,707);
+        Font myFont = new Font ("Serif",Font.BOLD,16);
+        graphics.setFont(myFont);
+        graphics.drawString(stat.showStats(),740,375);
 
 
     }
