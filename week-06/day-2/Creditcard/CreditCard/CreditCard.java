@@ -4,9 +4,9 @@ import java.util.Random;
 
 public class CreditCard implements CreditCardy {
 
-    int counter;
+   static int counter;
 
-    public int getSumCVV(){
+    public int getSumCVV()    {
         return 0;
     }
 
@@ -20,7 +20,8 @@ public class CreditCard implements CreditCardy {
 
     @Override
     public String getCodeAccount() {
-        return getRandomCreditNumber();
+
+         return getRandomCreditNumber();
     }
 
     @Override
@@ -35,16 +36,18 @@ public class CreditCard implements CreditCardy {
     String getRandomCreditNumber(){
         String randomCardNumber = "";
         for (int i = 0; i < 16 ; i++) {
-            randomCardNumber += String.valueOf(new Random().nextInt()*10);
-
+            randomCardNumber += String.valueOf(new Random().nextInt(10));
+            if(i ==0 && Integer.parseInt(randomCardNumber) == 0){
+                randomCardNumber = "";
+                randomCardNumber += String.valueOf(new Random().nextInt(9)-1);
+            }
         }
         return randomCardNumber;
     }
 
     public String toString(){
         String codeAcc = getCodeAccount();
-        return String.format("Name=%s CC#=%s CVV=%d (validated)", getNameCardholder(), codeAcc,
-                        cumeSumCVV(codeAcc));
+        return String.format("Name=%s CC#=%s CVV=%d (validated)", getNameCardholder(), codeAcc,cumeSumCVV(codeAcc));
     }
 
 }
