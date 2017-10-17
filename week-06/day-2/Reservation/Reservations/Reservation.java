@@ -3,21 +3,29 @@ package Reservations;
 public class Reservation implements Reservationy {
 
     String code;
-    int randomDOW;
+    private String[] DOW;
+    //int randomDOW;
+    private String dow;
+
 
     public Reservation(){
         generateCode();
-        getCodeBooking();
-        getDowBooking();
+         DOW = new String[] {"MON", "TUE", "WEN", "THU", "FRI", "SAT", "SUN"};
+         generateDOW();
     }
 
     public void generateCode(){
 
-        code = new String();
+        code = "";
         for (int i = 0; i < 8 ; i++) {
-            code += String.valueOf(CHAR.charAt(((int)Math.random())* CHAR.length()));
+            int num = (int)(65+Math.random()*25);
+            char digit = (char) num;
+            code +=digit;
         }
-        randomDOW = (int)(Math.random())*DOW.length;
+    }
+
+    public void generateDOW(){
+        dow = DOW[(int)(Math.random()*7)];
     }
 
     @Override
@@ -27,13 +35,13 @@ public class Reservation implements Reservationy {
 
     @Override
     public String getDowBooking() {
-        return DOW[randomDOW];
+        return dow;
     }
 
     @Override
     public String toString(){
-        //return String.format("BOOKING# %s for %s " ,code, DOW[randomDOW]);
-        return "BOOKING# " + getCodeBooking() + " for " + getDowBooking();
+        return String.format("BOOKING# %s for %s " ,code, dow);
+        //return "BOOKING# " + getCodeBooking() + " for " + getDowBooking();
     }
 
 
