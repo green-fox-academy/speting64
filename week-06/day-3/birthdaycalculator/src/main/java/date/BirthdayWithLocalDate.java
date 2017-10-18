@@ -7,27 +7,38 @@ public class BirthdayWithLocalDate implements BirthdayCalculator<LocalDate> {
 
     @Override
     public LocalDate parseDate(String str) {
-        // TODO - return with the parsed date; format is: yyyy-MM-dd
+        return LocalDate.parse(str);
     }
 
     @Override
     public String printMonthAndDay(LocalDate date) {
         // TODO - return the date formatted: month & day (MM. dd.)
+        return date.getMonthValue() + "." + date.getDayOfMonth() + ".";
     }
 
     @Override
     public boolean isAnniversaryToday(LocalDate date) {
-        // TODO - return with true if today is the same month+day as date
+        return date.equals(LocalDate.now());
     }
 
     @Override
     public int calculateAgeInYears(LocalDate birthday) {
         // TODO - return how many years age the input date 'birthday' was
+        return LocalDate.now().getYear()-birthday.getYear();
     }
 
     @Override
     public int calculateDaysToNextAnniversary(LocalDate date) {
         // TODO - the number of days remaining to the next anniversary of 'date' (e.g. if tomorrow, return 1)
+        LocalDate d = LocalDate.now();
+        if(d.getDayOfYear() == date.getDayOfYear()){
+            return 0;
+        }
+        else if (d.getDayOfYear() > date.getDayOfYear()){
+            return LocalDate.of(d.getYear(),12,31).getDayOfYear()-d.getDayOfYear()+date.getDayOfYear();
+        }else{
+            return d.getDayOfYear()-date.getDayOfYear();
+        }
     }
 
     public static void main(String[] args) {
