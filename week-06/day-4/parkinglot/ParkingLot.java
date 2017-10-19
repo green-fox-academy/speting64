@@ -8,7 +8,7 @@ public class ParkingLot {
     private List<Car> carList = new ArrayList<>();
 
     void fillParkingLot(){
-        for (int i = 0; i <16 ; i++) {
+        for (int i = 0; i <256 ; i++) {
             Car car = new Car();
             carList.add(car);
         }
@@ -24,6 +24,18 @@ public class ParkingLot {
             }
         }
         return typeMap;
+    }
+
+    Map <Color,Integer> VehicleColor(List<Car> carList){
+        Map<Color,Integer> colorMap = new HashMap<>();
+        for(Car car :carList){
+            if(colorMap.containsKey(car.getColor())){
+                colorMap.put(car.getColor(),colorMap.get(car.getColor())+1);
+            }else{
+                colorMap.put(car.getColor(),1);
+            }
+        }
+        return colorMap;
     }
 
     public List<Car> getCarList(){
