@@ -13,10 +13,18 @@ public class ParkingLot {
             carList.add(car);
         }
     }
-/*
+
     Map <Type,Integer> VehicleTypes(List<Car> carList){
-        return null;
-    }*/
+        Map<Type,Integer> typeMap = new HashMap<>();
+        for(Car car :carList){
+            if(typeMap.containsKey(car.getType())){
+                typeMap.put(car.getType(),typeMap.get(car.getType())+1);
+            }else{
+                typeMap.put(car.getType(),1);
+            }
+        }
+        return typeMap;
+    }
 
     public List<Car> getCarList(){
         return carList;
