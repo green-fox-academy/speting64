@@ -14,7 +14,7 @@ public class ParkingLot {
         }
     }
 
-    Map <Type,Integer> VehicleTypes(List<Car> carList){
+    Map <Type,Integer> vehicleTypes(List<Car> carList){
         Map<Type,Integer> typeMap = new HashMap<>();
         for(Car car :carList){
             if(typeMap.containsKey(car.getType())){
@@ -26,7 +26,7 @@ public class ParkingLot {
         return typeMap;
     }
 
-    Map <Color,Integer> VehicleColor(List<Car> carList){
+    Map <Color,Integer> vehicleColor(List<Car> carList){
         Map<Color,Integer> colorMap = new HashMap<>();
         for(Car car :carList){
             if(colorMap.containsKey(car.getColor())){
@@ -36,6 +36,32 @@ public class ParkingLot {
             }
         }
         return colorMap;
+    }
+
+    Map<String, Integer> carOccurence(List<Car> carList){
+        Map<String,Integer> carMap = new HashMap<>();
+        for(Car car :carList) {
+            if (carMap.containsKey(car.toString())) {
+                carMap.put(car.toString(), carMap.get(car.toString()) + 1);
+            } else {
+                carMap.put(car.toString(), 1);
+            }
+        }
+        return carMap;
+    }
+
+    void mostFrequentCar (Map <String,Integer> mostMap){
+        Map.Entry<String,Integer> maxEntry =null;
+
+        for (Map.Entry<String, Integer> entry : mostMap.entrySet())
+        {
+            if (maxEntry == null || entry.getValue().compareTo(maxEntry.getValue()) > 0)
+            {
+                maxEntry = entry;
+            }
+        }
+        assert maxEntry != null;
+        System.out.println(maxEntry);
     }
 
     public List<Car> getCarList(){
