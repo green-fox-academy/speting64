@@ -20,7 +20,7 @@ public class HelloRESTController {
         return new Greeting(counter.getAndIncrement(),"Hello " + name);
     }
 
-    public static void main(String[] args) {
+/*    public static void main(String[] args) {
         SpringApplication.run(SpringstartApplication.class, args);
-    }
+    }*/
 }
