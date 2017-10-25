@@ -13,7 +13,7 @@
     <th>Name </th>
     <th>Balance</th>
     <th>Animal Type</th>
-    <th>King?</th>
+    <th>King</th>
 
     <tr th:style= "${account.name} == 'Mufasa'? 'color: gold'" th:each="account, iterStat: ${accounts}"  >
         <td align="center" th:text="${iterStat.count}"></td>
