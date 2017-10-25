@@ -6,7 +6,9 @@
     <meta charset="utf-8" />
 </head>
 <body>
-<table>
+
+<h1> Bank Accounts of Pride Lands </h1>
+<table width="500" border="1">
     <th>id</th>
     <th>Name </th>
     <th>Balance</th>
@@ -16,7 +18,7 @@
     <tr th:style= "${account.name} == 'Mufasa'? 'color: gold'" th:each="account, iterStat: ${accounts}"  >
         <td align="center" th:text="${iterStat.count}"></td>
         <td align="center" th:text="${account.name}"></td>
-        <td align="center" th:text="${#numbers.formatDecimal(account.balance, 0, 2)}"></td>
+        <td align="center" th:text="${#numbers.formatDecimal(account.balance, 0, 2) + ' Zebra'}"></td>
         <td align="center" th:text="${account.animalType}"></td>
         <td align="center" th:text="(${account.name} == 'Mufasa')? 'yes' : 'no'"></td>
 

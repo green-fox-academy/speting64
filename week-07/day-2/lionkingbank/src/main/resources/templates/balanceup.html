@@ -16,15 +16,21 @@
     <th>Animal Type</th>
     <th>King?</th>
     <th>Good or Bad?</th>
-    <tr th:style= "${account.name} == 'Mufasa'? 'color: red'" th:each="account, iterStat: ${accounts}"  >
+    <tr th:style= "${account.name} == 'Porky'? 'color: red'" th:each="account, iterStat: ${accounts}"  >
         <td align="center" th:text="${iterStat.count}"></td>
         <td align="center" th:text="${account.name}"></td>
         <td align="center" th:text="${#numbers.formatDecimal(account.balance, 0, 2) +' Zebra'}"></td>
         <td align="center" th:text="${account.animalType}"></td>
-        <td align="center" th:text="(${account.name} == 'Mufasa')? 'yes' : 'no'"></td>
+        <td align="center" th:text="(${account.name} == 'Porky')? 'yes' : 'no'"></td>
         <td th:switch="${account.isGoodGuy()}">
             <span th:case="true" th:text= "'Good Guy'"/>
             <span th:case="false" th:text= "'Bad Guy'"/>
+        </td>
+        <td>
+        <form action="#" th:action="@{/balanceup/increase}" method="get">
+            <input type="hidden" name="index" th:value="${iterStat.index}"/>
+            <span><input type="submit" value="Add 10 Zebras" /></span>
+        </form>
         </td>
     </tr>
 </table>
