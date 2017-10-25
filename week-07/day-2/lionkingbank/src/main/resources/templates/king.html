@@ -7,30 +7,20 @@
 </head>
 <body>
 <table>
+    <th>id</th>
     <th>Name </th>
     <th>Balance</th>
     <th>Animal Type</th>
     <th>King?</th>
-    <tr th:each="listelement : ${accounts}">
-            <td th:if="${listelement.isKing()}" th:style="'color:gold;font-weight:bold' " th:text="'|' +
-             ${listelement.getName()} + '|'" />
 
-            <td th:if="${listelement.isKing()}" th:style="'color:gold;font-weight:bold' " th:text="'|' +
-             ${#numbers.formatDecimal(listelement.getBalance(),0,2)} + ' Zebra ' + '|' " />
+    <tr th:style= "${account.name} == 'Mufasa'? 'color: gold'" th:each="account, iterStat: ${accounts}"  >
+        <td align="center" th:text="${iterStat.count}"></td>
+        <td align="center" th:text="${account.name}"></td>
+        <td align="center" th:text="${#numbers.formatDecimal(account.balance, 0, 2)}"></td>
+        <td align="center" th:text="${account.animalType}"></td>
+        <td align="center" th:text="(${account.name} == 'Mufasa')? 'yes' : 'no'"></td>
 
-            <td th:if="${listelement.isKing()}" th:style="'color:gold;font-weight:bold' " th:text="'|' +
-             ${listelement.getAnimalType()}" />
     </tr>
-   <!-- <tr>
-        <div th:unless="${listelement.isKing()}" th:style="''">
-            <td th:text="'|' + ${listelement.getName()} + '|'" />
-            <td th:text="'|' + ${#numbers.formatDecimal(listelement.getBalance(),0,2)} + ' Zebra ' + '|' " />
-            <td th:text="'|' + ${listelement.getAnimalType()}" />
-        </div>
-    </tr> -->
-
-
-
 </table>
 </body>
 </html>
