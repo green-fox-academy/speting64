@@ -6,8 +6,7 @@
     <meta charset="utf-8" />
 </head>
 <body>
-<p th:text="'Name: '+ ${simbaAccount.name} +
- ' Balance: ' +${#numbers.formatDecimal(simbaAccount.balance,0,2)} + 'Zebra' +
-  ' Type: ' +${simbaAccount.animalType} + "/>
+<p th:text = "'Text: ' + ${text}"/>
+<p th:utext = "'UText: ' + ${text}"/>
 </body>
 </html>
