@@ -1,0 +1,36 @@
+<!DOCTYPE html>
+<html xmlns:th="http://www.thymeleaf.org">
+<head>
+    <title>Thymeleaf Exercise #</title>
+    <link rel="stylesheet" th:href="@{/style.css}" />
+    <meta charset="utf-8" />
+</head>
+<body>
+<table>
+    <th>Name </th>
+    <th>Balance</th>
+    <th>Animal Type</th>
+    <th>King?</th>
+    <tr th:each="listelement : ${accounts}">
+            <td th:if="${listelement.isKing()}" th:style="'color:gold;font-weight:bold' " th:text="'|' +
+             ${listelement.getName()} + '|'" />
+
+            <td th:if="${listelement.isKing()}" th:style="'color:gold;font-weight:bold' " th:text="'|' +
+             ${#numbers.formatDecimal(listelement.getBalance(),0,2)} + ' Zebra ' + '|' " />
+
+            <td th:if="${listelement.isKing()}" th:style="'color:gold;font-weight:bold' " th:text="'|' +
+             ${listelement.getAnimalType()}" />
+    </tr>
+   <!-- <tr>
+        <div th:unless="${listelement.isKing()}" th:style="''">
+            <td th:text="'|' + ${listelement.getName()} + '|'" />
+            <td th:text="'|' + ${#numbers.formatDecimal(listelement.getBalance(),0,2)} + ' Zebra ' + '|' " />
+            <td th:text="'|' + ${listelement.getAnimalType()}" />
+        </div>
+    </tr> -->
+
+
+
+</table>
+</body>
+</html>

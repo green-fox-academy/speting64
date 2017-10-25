@@ -11,9 +11,9 @@
     <th>Balance</th>
     <th>Animal Type</th>
     <tr th:each="listelement : ${accounts}">
-        <td th:text="' | Name: ' + ${listelement.getName()}" />
-        <td th:text="' | Balance: ' + ${#numbers.formatDecimal(listelement.getBalance(),0,2)} + ' Zebra ' " />
-        <td th:text="' | Animal type: ' + ${listelement.getAnimalType()}" />
+        <td th:text="'|' + ${listelement.getName()} + '|'" />
+        <td th:text="'|' + ${#numbers.formatDecimal(listelement.getBalance(),0,2)} + ' Zebra ' + '|' " />
+        <td th:text="'|' + ${listelement.getAnimalType()}" />
     </tr>
 </table>
 </body>
