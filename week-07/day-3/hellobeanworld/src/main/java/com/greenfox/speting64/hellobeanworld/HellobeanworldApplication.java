@@ -14,7 +14,6 @@ import org.springframework.context.annotation.AnnotationConfigApplicationContext
 @SpringBootApplication
 public class HellobeanworldApplication {
 
-
 	public static void main(String[] args) {
 
 		ApplicationContext getHello =new AnnotationConfigApplicationContext(HelloWorldConfig.class);
@@ -26,12 +25,8 @@ public class HellobeanworldApplication {
 		ApplicationContext getColor =new AnnotationConfigApplicationContext(ColorConfig.class);
 		MyColor yellow = getColor.getBean(YellowColor.class);
 		yellow.printColor();
-
 		MyColor green = getColor.getBean(GreenColor.class);
 		green.printColor();
-
-
-
 	}
 }
 
