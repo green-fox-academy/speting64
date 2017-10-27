@@ -4,12 +4,17 @@
     <meta charset="UTF-8"/>
     <title>Programmer Fox Club</title>
 </head>
+<body>
 <br>
 <a href="/">Information</a>
 </br>
-<body>
+<p>
 <img th:src="@{/greenfox.png}"/>
-<p> This is Mr.Fox. Currently living on pizza on lemonade. He knows two tricks </p>
+<p th:text ="' This is ' +  ${fox.getName()} +'.  Currently living on ' + ${fox.getFood()} +
+ ' and on ' + ${fox.getDrink()} + '. He knows ' + ${fox.getTricks().size()} + ' tricks'">This is Mr. Green. Currently living on salad and water. He knows 0 trick.</p>
+<p th:if = "${fox.getTricks().size() == 0}"> This fox does not know any tricks yet </p>
+</p>
+<!--<p th:if = "${fox.getTricks().size() >= 0}"> This fox does not know any tricks yet </p> -->
 <h1>Known Tricks</h1>
 <ul>
     <li>Write in HTML</li>
