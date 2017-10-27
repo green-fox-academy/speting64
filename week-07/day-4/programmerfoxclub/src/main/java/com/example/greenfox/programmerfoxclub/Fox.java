@@ -51,5 +51,7 @@ public class Fox {
         this.drink = drink;
     }
 
-
+    public void addTrick(String trick) {
+        tricks.add(trick);
+    }
 }
