@@ -2,7 +2,7 @@ package com.example.greenfox.programmerfoxclub.model;
 
 public enum Food {
 
-    HAMBURGER("Hamburger") ,CHIPS ("Doritos") , BREAD("Jam Sandwich") , PIZZA ("Son-go-ku");
+    HAMBURGER("Hamburger") ,CHIPS ("Chips") , BREAD("Jam Sandwich") , PIZZA ("Pizza");
 
     String text;
 
