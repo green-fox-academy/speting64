@@ -11,9 +11,9 @@
 <p>
 <img th:src="@{/greenfox.png}"/>
 <p th:text ="' This is ' +  ${fox.getName()} +'.  Currently living on ' + ${fox.getFood()} +
- ' and on ' + ${fox.getDrink()} + '. He knows ' + ${fox.getTricks().size()} + ' tricks'">This is Mr. Green. Currently living on salad and water. He knows 0 trick.</p>
+ ' and on ' + ${fox.getDrink()} + '. He knows ' + ${fox.getTricks().size()} + ' tricks'"></p>
 <h1>Known Tricks</h1>
-<p th:if = "${fox.getTricks().size() == 0}"> This fox does not know any tricks yet </p>
+<p th:if = "${fox.getTricks().size() == 0}"> You have no tricks, go home and learn!! </p>
 <p th:if = "${fox.getTricks().size() > 0}" th:text = "'This fox knows the next '+ ${fox.getTricks().size()} + 'tricks'"> </p>
 </p>
 </body>

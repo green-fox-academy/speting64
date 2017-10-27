@@ -8,8 +8,6 @@ import java.util.ArrayList;
 @Component
 public class Fox {
 
-
-
     String name;
     String food;
     String drink;
