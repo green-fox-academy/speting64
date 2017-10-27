@@ -16,7 +16,7 @@ public class Fox {
     List<String> tricks;
 
     public Fox(){
-        this.name = "Vuk";
+        this.name = "Mr Green";
         this.food = "Goose";
         this.drink = "Mud";
         this.tricks = new ArrayList<>();
