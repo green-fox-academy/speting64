@@ -15,7 +15,7 @@ public class ConnectionwithmysqlApplication implements CommandLineRunner {
 	ToDoRepository todoRepository;
 
 	public static void main(String[] args) {
-		SpringApplication.run( ConnectionwithmysqlApplication.class, args);
+		SpringApplication.run(ConnectionwithmysqlApplication.class, args);
 	}
 
 	@Override
