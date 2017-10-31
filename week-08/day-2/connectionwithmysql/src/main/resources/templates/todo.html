@@ -16,10 +16,11 @@
         <th>Urgent</th>
     </tr>
     <tr th:each="todotable : ${todolist}" >
-        <th th:text="${todotable.id}"></th>
-        <th th:text="${todotable.title}"></th>
-        <th th:text="${todotable.isDone()}"></th>
-        <th th:text="${todotable.isUrgent()}"></th>
+        <td th:text="${todotable.id}"></td>
+        <td th:text="${todotable.title}"></td>
+        <td th:text="${todotable.isDone()}"></td>
+        <td th:text="${todotable.isUrgent()}"></td>
+        <td><a th:href="@{/todo/{id}/delete(id=${todotable.id})}">delete</a> </td>
     </tr>
 </table>
 </body>

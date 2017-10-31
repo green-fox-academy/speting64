@@ -15,12 +15,10 @@ public class ToDo {
     boolean isUrgent;
     boolean isDone;
 
-
     public ToDo(String title){
         this.title = title;
         this.isUrgent = false;
         this.isDone = false;
-
     }
 
     public ToDo(){
