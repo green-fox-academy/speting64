@@ -11,7 +11,7 @@ public class ToDo {
     @Id
     @GeneratedValue(strategy = GenerationType.AUTO)
     long id;
-    String title;
+    private String title;
     boolean isUrgent;
     boolean isDone;
 
