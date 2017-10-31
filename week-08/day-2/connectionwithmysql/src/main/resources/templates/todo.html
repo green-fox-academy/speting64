@@ -6,8 +6,19 @@
 </head>
 <body>
 <h1> Todos for today </h1>
-<ul th:each="todotable : ${todolist}">
-    <li th:text = "${todotable}"></li>
-</ul>
+<table width="500" border="1">
+    <tr>
+        <th>Id</th>
+        <th>Todo</th>
+        <th>Done</th>
+        <th>Urgent</th>
+    </tr>
+    <tr th:each="todotable : ${todolist}" >
+        <th th:text="${todotable.id}"></th>
+        <th th:text="${todotable.title}"></th>
+        <th th:text="${todotable.isDone()}"></th>
+        <th th:text="${todotable.isUrgent()}"></th>
+    </tr>
+</table>
 </body>
 </html>
