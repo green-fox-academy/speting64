@@ -33,9 +33,7 @@ public class Fox {
         return drink;
     }
 
-    public List<String> getTricks() {
-        return tricks;
-    }
+
 
     public void setName(String name) {
         this.name = name;
@@ -51,5 +49,9 @@ public class Fox {
 
     public void addTrick(String trick) {
         tricks.add(trick);
+    }
+
+    public List<String> getTricks() {
+        return tricks;
     }
 }
