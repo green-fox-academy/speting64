@@ -11,7 +11,7 @@
 </ul>
 
 <ul>
-    <li><a th:href="@{assignees/addassignee}">Add new Colleagues</a></li>
+    <li><a th:href="@{/assignees/addassignee}">Add new Colleagues</a></li>
 </ul>
 
 <h1>List of Assignees</h1>
@@ -27,8 +27,12 @@
         <td th:text="${assignees.id}"></td>
         <td th:text="${assignees.getName()}"></td>
         <td th:text="${assignees.getEmail()}"></td>
+       <td>
+           <form action = "#" th:action="@{/assignees/{id}/delete(id=${assignees.id})}">
+               <button type="submit" id="submit">Delete</button>
+           </form>
+       </td>
     </tr>
-
 </table>
 </body>
 </html>

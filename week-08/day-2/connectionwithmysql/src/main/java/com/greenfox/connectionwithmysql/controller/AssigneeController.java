@@ -31,5 +31,13 @@ public class AssigneeController {
         assigneeRepository.save(assignee);
         return "redirect:/assignees/";
     }
+
+    @GetMapping("/{id}/delete")
+    public String delete(@PathVariable long id,Model model) {
+        Assignee assignee = assigneeRepository.findOne(id);
+        model.addAttribute("assignee" , assignee);
+        assigneeRepository.delete(id);
+        return "redirect:/assignees";
+    }
 }
 
