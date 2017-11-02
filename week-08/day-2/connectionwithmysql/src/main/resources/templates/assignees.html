@@ -5,16 +5,28 @@
     <title>Assignees</title>
 </head>
 <body>
+
+<ul>
+    <li><a th:href="@{/todo/list}">Return to homepage</a></li>
+</ul>
+
+<ul>
+    <li><a th:href="@{assignees/addassignee}">Add new Colleagues</a></li>
+</ul>
+
+<h1>List of Assignees</h1>
+
 <table width="500" border="1">
     <tr>
         <th>Id</th>
         <th>Name</th>
         <th>E-mail</th>
     </tr>
+
     <tr th:each="assignees : ${assignee}">
         <td th:text="${assignees.id}"></td>
-        <td th:text="${assignees.name}"></td>
-        <td th:text="${assignees.email}"></td>
+        <td th:text="${assignees.getName()}"></td>
+        <td th:text="${assignees.getEmail()}"></td>
     </tr>
 
 </table>
