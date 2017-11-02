@@ -32,6 +32,11 @@
                <button type="submit" id="submit">Delete</button>
            </form>
        </td>
+        <td>
+            <form th:action="@{/assignees/{id}/edit(id=${assignees.id})}">
+                <button type="submit" id="submit">Edit</button>
+            </form>
+        </td>
     </tr>
 </table>
 </body>

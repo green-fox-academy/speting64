@@ -11,6 +11,8 @@ import org.springframework.web.bind.annotation.*;
 @RequestMapping("/assignees")
 public class AssigneeController {
 
+    long id;
+
     @Autowired
     AssigneeRepository assigneeRepository;
 
@@ -37,6 +39,19 @@ public class AssigneeController {
         Assignee assignee = assigneeRepository.findOne(id);
         model.addAttribute("assignee" , assignee);
         assigneeRepository.delete(id);
+        return "redirect:/assignees";
+    }
+
+    @GetMapping("/{id}/edit")
+    public String edit(Model model, @PathVariable("id") long id) {
+        Assignee assignee = assigneeRepository.findOne(id);
+        model.addAttribute("editing", assignee);
+        return "edit";
+    }
+
+    @PostMapping("/{id}/edit")
+    public String editInfo(@ModelAttribute Assignee assignee) {
+        assigneeRepository.save(assignee);
         return "redirect:/assignees";
     }
 }

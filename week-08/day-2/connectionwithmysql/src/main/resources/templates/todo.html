@@ -20,7 +20,7 @@
         <th>EDIT</th>
 
     </tr>
-    <tr th:each="todotable : ${todolist}" >
+    <tr th:each="todotable : ${todolist}">
         <td th:text="${todotable.id}"></td>
         <td th:text="${todotable.title}"></td>
         <td th:text="${todotable.isDone() ? 'TRUE' : 'FALSE'}"></td>

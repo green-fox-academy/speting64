@@ -15,7 +15,6 @@ public class Assignee {
     String email;
 
     public Assignee(){
-
     }
 
     public Assignee(String name, String email){
