@@ -63,10 +63,5 @@ public class ToDoController {
         todoRepository.save(save);
         return "redirect:/todo/list";
 
-}
-
-
-
-
-
+    }
 }
