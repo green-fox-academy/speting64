@@ -1,21 +1,35 @@
 package com.greenfox.connectionwithmysql.model;
 
+import javax.persistence.*;
 import java.util.ArrayList;
 import java.util.List;
 
+@Entity
+@Table(name = "assignee")
 public class Assignee {
 
+    @Id
+    @GeneratedValue(strategy = GenerationType.AUTO)
+    long id;
     String name;
-    String eMail;
+    String email;
 
     public Assignee(){
 
     }
 
-    public Assignee(String name, String eMail){
+    public Assignee(String name, String email){
 
         this.name=name;
-        this.eMail=eMail;
+        this.email=email;
+    }
+
+    public long getId() {
+        return id;
+    }
+
+    public void setId(long id) {
+        this.id = id;
     }
 
     public String getName() {
@@ -26,13 +40,11 @@ public class Assignee {
         this.name = name;
     }
 
-    public String geteMail() {
-        return eMail;
+    public String getEmail() {
+        return email;
     }
 
-    public void seteMail(String eMail) {
-        this.eMail = eMail;
+    public void setEmail(String email) {
+        this.email = email;
     }
-
-
 }
