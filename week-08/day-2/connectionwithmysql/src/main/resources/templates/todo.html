@@ -14,13 +14,17 @@
         <th>Todo</th>
         <th>Done</th>
         <th>Urgent</th>
+        <th>DELETE</th>
+        <th>EDIT</th>
+
     </tr>
     <tr th:each="todotable : ${todolist}" >
         <td th:text="${todotable.id}"></td>
         <td th:text="${todotable.title}"></td>
-        <td th:text="${todotable.isDone()}"></td>
-        <td th:text="${todotable.isUrgent()}"></td>
-        <td><a th:href="@{/todo/{id}/delete(id=${todotable.id})}">delete</a> </td>
+        <td th:text="${todotable.isDone() ? 'TRUE' : 'FALSE'}"></td>
+        <td th:text="${todotable.isUrgent() ? 'TRUE' : 'FALSE'}"></td>
+        <td><a th:href="@{/todo/{id}/delete(id=${todotable.id})}">Delete</a> </td>
+        <td><a th:href="'/todo/' + ${todotable.id} + '/edit'">Edit</a></td>
     </tr>
 </table>
 </body>
