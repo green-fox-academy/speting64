@@ -1,6 +1,8 @@
 package com.greenfox.connectionwithmysql;
 
+import com.greenfox.connectionwithmysql.repository.AssigneeRepository;
 import com.greenfox.connectionwithmysql.repository.ToDoRepository;
+import com.greenfox.connectionwithmysql.model.Assignee;
 import com.greenfox.connectionwithmysql.model.ToDo;
 
 import org.springframework.beans.factory.annotation.Autowired;
@@ -10,6 +12,9 @@ import org.springframework.boot.autoconfigure.SpringBootApplication;
 
 @SpringBootApplication
 public class ConnectionwithmysqlApplication implements CommandLineRunner {
+
+	@Autowired
+	AssigneeRepository assigneeRepository;
 
 	@Autowired
 	ToDoRepository todoRepository;
@@ -23,5 +28,8 @@ public class ConnectionwithmysqlApplication implements CommandLineRunner {
 		todoRepository.save(new ToDo("I have to learn Object Relational Mapping"));
 		todoRepository.save(new ToDo("I have to master Java Persistent API"));
 		todoRepository.save(new ToDo("I have to use H2 database"));
+
+		assigneeRepository.save(new Assignee("Andris","andris12@greenfox.com"));
+
 	}
 }
