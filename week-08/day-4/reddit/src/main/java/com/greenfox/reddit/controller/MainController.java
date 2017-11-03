@@ -53,5 +53,4 @@ public class MainController {
         posting.downVote(id);
         return "redirect:/posts";
     }
-
 }

@@ -26,9 +26,4 @@ public class Posting {
         post.setScore(post.getScore()-1);
         redditRepository.save(post);
     }
-
-
-
-
-
 }

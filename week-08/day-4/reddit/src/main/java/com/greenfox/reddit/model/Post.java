@@ -15,10 +15,8 @@ public class Post {
 
 
     public Post(){
-
         this.score=0;
         this.content="";
-
     }
 
     public Post(int score ,String content){
