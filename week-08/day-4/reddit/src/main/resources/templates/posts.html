@@ -24,6 +24,10 @@
     <tr th:each="posts : ${post}">
         <td th:text="${posts.id}"></td>
         <td th:text="${posts.getScore()}"></td>
+        <td>
+            <a th:href="@{/posts/{id}/upvote(id=${posts.getId()})}" >+</a>
+            <a th:href="@{/posts/{id}/downvote(id=${posts.getId()})}">-</a>
+        </td>
         <td th:text="${posts.getContent()}"></td>
     </tr>
 </table>
