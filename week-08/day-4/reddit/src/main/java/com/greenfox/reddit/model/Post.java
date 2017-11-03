@@ -1,14 +1,13 @@
 package com.greenfox.reddit.model;
 
-import javax.persistence.Entity;
-import javax.persistence.GeneratedValue;
-import javax.persistence.GenerationType;
-import javax.persistence.Id;
+import javax.persistence.*;
 
+@Table(name = "reddit")
 @Entity
 public class Post {
 
     @Id
+
     @GeneratedValue(strategy = GenerationType.AUTO)
     long id;
     int score;
@@ -17,11 +16,14 @@ public class Post {
 
     public Post(){
 
+        this.score=0;
+        this.content="";
+
     }
 
     public Post(int score ,String content){
 
-        this.score=score;
+        this.score=0;
         this.content=content;
 
     }

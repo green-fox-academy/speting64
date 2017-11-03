@@ -14,25 +14,15 @@
 
 <table width="500" border="1">
     <tr>
+        <th>id</th>
         <th>SCORE</th>
-        <th>Actions</th>
         <th>Content</th>
     </tr>
 
     <tr th:each="posts : ${post}">
-        <td th:text="${assignees.id}"></td>
-        <td th:text="${assignees.getName()}"></td>
-        <td th:text="${assignees.getEmail()}"></td>
-        <td>
-            <form action = "#" th:action="@{/assignees/{id}/delete(id=${assignees.id})}">
-                <button type="submit" id="submit">Delete</button>
-            </form>
-        </td>
-        <td>
-            <form th:action="@{/assignees/{id}/edit(id=${assignees.id})}">
-                <button type="submit" id="submit">Edit</button>
-            </form>
-        </td>
+        <td th:text="${posts.id}"></td>
+        <td th:text="${posts.getScore()}"></td>
+        <td th:text="${posts.getContent()}"></td>
     </tr>
 </table>
 </body>

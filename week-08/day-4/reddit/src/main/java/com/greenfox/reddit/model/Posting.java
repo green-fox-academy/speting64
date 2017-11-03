@@ -1,4 +1,4 @@
-package com.greenfox.reddit.model;
+/*package com.greenfox.reddit.model;
 
 import com.greenfox.reddit.repository.RedditRepository;
 import org.springframework.beans.factory.annotation.Autowired;
@@ -21,3 +21,4 @@ public class Posting {
         return redditRepository.findOne(id);
     }
 }
+*/
