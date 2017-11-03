@@ -11,17 +11,19 @@ public class Post {
     @Id
     @GeneratedValue(strategy = GenerationType.AUTO)
     long id;
-    String link;
-    String title;
+    int score;
+    String content;
+
 
     public Post(){
 
     }
 
-    public Post(String link ,String title){
+    public Post(int score ,String content){
 
-        this.link=link;
-        this.title=title;
+        this.score=score;
+        this.content=content;
+
     }
 
     public long getId() {
@@ -32,20 +34,20 @@ public class Post {
         this.id = id;
     }
 
-    public String getLink() {
-        return link;
+    public int getScore() {
+        return score;
     }
 
-    public void setLink(String link) {
-        this.link = link;
+    public void setScore(int score) {
+        this.score = score;
     }
 
-    public String getTitle() {
-        return title;
+    public String getContent() {
+        return content;
     }
 
-    public void setTitle(String title) {
-        this.title = title;
+    public void setContent(String content) {
+        this.content = content;
     }
 }
 
