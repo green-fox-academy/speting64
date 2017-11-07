@@ -15,10 +15,4 @@ public class MainController {
     public String index(){
         return "index";
     }
-
-   /* @GetMapping("/doubling/{input}")
-    public Doubling doubling(@PathVariable int input){
-        Doubling d = new Doubling(input);
-        return d;
-    }*/
 }

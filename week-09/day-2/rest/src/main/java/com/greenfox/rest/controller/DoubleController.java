@@ -7,7 +7,7 @@ import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.web.bind.annotation.*;
 
 @RestController
-public class RESTController {
+public class DoubleController {
 
     @Autowired
     Doubling doubling;
@@ -17,12 +17,13 @@ public class RESTController {
 
     @GetMapping("/doubling{input}")
     public Doubling Double(@RequestParam(value="input") int input){
+        Error e = new Error();
 
         if(input <= 0){
-            error.setError("Please provide a new input");
+           e.setError("Please provide a new Input");
+        }else{
+            doubling.setReceived(input);
         }
-        doubling.setReceived(input);
-
         return doubling;
     }
 
@@ -31,6 +32,4 @@ public class RESTController {
         error.setError("Please provide a new input");
         return error;
     }
-
-
 }
