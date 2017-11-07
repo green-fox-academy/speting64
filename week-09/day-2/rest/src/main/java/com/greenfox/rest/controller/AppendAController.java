@@ -23,6 +23,4 @@ public class AppendAController {
         appendA.setAppended(appendTo);
         return appendA;
     }
-
-    
 }

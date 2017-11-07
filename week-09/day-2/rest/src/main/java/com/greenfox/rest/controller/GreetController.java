@@ -31,6 +31,4 @@ public class GreetController {
         error.setError("Please provide a "+ parameterName + "!");
         return error;
     }
-
-
 }
