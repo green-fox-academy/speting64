@@ -1,5 +1,8 @@
 package com.greenfox.rest;
 
+import com.greenfox.rest.controller.GreetController;
+import com.greenfox.rest.model.ErrorMessage;
+
 import com.fasterxml.jackson.annotation.JsonInclude;
 import com.fasterxml.jackson.core.JsonProcessingException;
 import com.fasterxml.jackson.databind.ObjectMapper;
@@ -30,6 +33,8 @@ import static org.springframework.test.web.servlet.result.MockMvcResultHandlers.
 @EnableWebMvc
 public class RestApplicationTests {
 
+	GreetController greetController = new GreetController();
+
 	private MediaType contentType = new MediaType(MediaType.APPLICATION_JSON.getType(),
 			MediaType.APPLICATION_JSON.getSubtype(),
 			Charset.forName("utf8"));
@@ -59,4 +64,22 @@ public class RestApplicationTests {
 				.andExpect(status().isOk())
 				.andExpect(jsonPath("$.error", is("Please provide a new input")));
 	}
+
+	@Test
+	public void greetTestSuccessful() throws Exception {
+		mockMvc.perform(get("/greeter?name=Petike&title=student")
+				.contentType(MediaType.APPLICATION_JSON))
+				.andExpect(status().isOk())
+				.andExpect(jsonPath("$.welcome_message", is("Oh, hi there Petike, my dear student!")));
+	}
+
+	@Test
+	public void greetTestFailed() throws Exception {
+		mockMvc.perform(get("/greeter")
+				.contentType(MediaType.APPLICATION_JSON))
+				.andExpect(status().isOk())
+				.andExpect(jsonPath("$.welcome_message", is("Please provide a "+ parameterName + "!")));
+	}
+
+
 }
