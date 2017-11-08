@@ -81,5 +81,13 @@ public class RestApplicationTests {
 				.andExpect(jsonPath("$.error", is("Please provide a title!")));
 	}
 
+	@Test
+	public void greetTestFailedForName() throws Exception {
+		mockMvc.perform(get("/greeter?title=student")
+				.contentType(MediaType.APPLICATION_JSON))
+				.andExpect(status().isOk())
+				.andExpect(jsonPath("$.error", is("Please provide a name!")));
+	}
+
 
 }
