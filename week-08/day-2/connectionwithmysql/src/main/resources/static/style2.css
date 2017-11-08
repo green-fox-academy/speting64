@@ -1,0 +1,15 @@
+body
+{
+    background-image: url("");
+    font-family: 'Merriweather', serif;
+}
+
+h1
+{
+    font-family: Courier New, Courier, monospace
+}
+
+table
+{
+    background-color: aqua;
+}

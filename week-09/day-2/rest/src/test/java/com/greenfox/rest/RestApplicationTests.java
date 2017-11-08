@@ -122,4 +122,21 @@ public class RestApplicationTests {
 				.andExpect(status().isOk())
 				.andExpect(jsonPath("$.result", is(120)));
 	}
+
+	@Test
+	public void doUntilTestFailed() throws Exception {
+		mockMvc.perform(post("/dountil/")
+				.contentType(MediaType.APPLICATION_JSON)
+				.content(""))
+				.andExpect(status().isNotFound());
+	}
+
+	@Test
+	public void doUntilTestFailedForNoNumbers() throws Exception {
+		mockMvc.perform(post("/dountil/sum")
+				.contentType(MediaType.APPLICATION_JSON)
+				.content(""))
+				.andExpect(status().isOk())
+				.andExpect(jsonPath("$.error",is("Please provide a number!")));
+	}
 }

@@ -2,6 +2,7 @@
 <html lang="en" xmlns:th="http://www.thymeleaf.org">
 <head>
     <meta charset="UTF-8"/>
+    <link rel="stylesheet" th:href="@{/style.css}"/>
     <title>Title</title>
 </head>
 <body>
@@ -16,6 +17,8 @@
         <th>Todo</th>
         <th>Done</th>
         <th>Urgent</th>
+        <th>Created</th>
+        <th>Current</th>
         <th>DELETE</th>
         <th>EDIT</th>
 
@@ -25,9 +28,19 @@
         <td th:text="${todotable.title}"></td>
         <td th:text="${todotable.isDone() ? 'TRUE' : 'FALSE'}"></td>
         <td th:text="${todotable.isUrgent() ? 'TRUE' : 'FALSE'}"></td>
+        <td th:href="@{'/todo/filter/{assignees}'(assignee=${todotable.assignee})}"
+            th:text="${todotable.assignee}"></a></td>
+        <td th:text="${todolist.create}"/>
+        <td th:text="${todolist.current}"/>
         <td><a th:href="@{/todo/{id}/delete(id=${todotable.id})}">Delete</a> </td>
         <td><a th:href="'/todo/' + ${todotable.id} + '/edit'">Edit</a></td>
     </tr>
 </table>
+
+<form th:action="@{/todo/list}" th:object="${search}" method="get">
+    <input type="search" name="search" placeholder="Search" />
+    <button type="submit" value="Submit">Initiate!</button>
+</form>
+
 </body>
 </html>

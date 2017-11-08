@@ -1,5 +1,8 @@
 package com.greenfox.connectionwithmysql.controller;
 
+import org.apache.tomcat.jni.Local;
+
+import com.greenfox.connectionwithmysql.repository.AssigneeRepository;
 import com.greenfox.connectionwithmysql.repository.ToDoRepository;
 import com.greenfox.connectionwithmysql.model.ToDo;
 
@@ -17,9 +20,20 @@ public class ToDoController {
     @Autowired
     ToDoRepository todoRepository;
 
+    @Autowired
+    AssigneeRepository assigneeRepository;
+
     @RequestMapping(value = {"/", "/list"})
-    public String List(Model model) {
+    public String List(Model model /*@RequestParam (required = false) String search*/) {
         model.addAttribute("todolist", todoRepository.findAll());
+        return "todo";
+    }
+
+    @GetMapping("/filter/{assignees}")
+    public String filter(Model model, @PathVariable String assignee){
+        if(assignee != null){
+            model.addAttribute("todolist" , todoRepository.findAllByAssigneeName(assignee));
+        }
         return "todo";
     }
 
@@ -64,4 +78,5 @@ public class ToDoController {
         return "redirect:/todo/list";
 
     }
+
 }

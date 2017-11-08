@@ -1,9 +1,9 @@
 package com.greenfox.connectionwithmysql.model;
 
-import javax.persistence.Entity;
-import javax.persistence.GeneratedValue;
-import javax.persistence.GenerationType;
-import javax.persistence.Id;
+import org.springframework.format.annotation.DateTimeFormat;
+
+import javax.persistence.*;
+import java.time.LocalDate;
 
 @Entity
 public class ToDo {
@@ -11,14 +11,26 @@ public class ToDo {
     @Id
     @GeneratedValue(strategy = GenerationType.AUTO)
     long id;
+
     private String title;
     boolean isUrgent;
     boolean isDone;
+
+    @DateTimeFormat(pattern = "mm/dd/yyyy")
+    LocalDate create;
+
+    @DateTimeFormat(pattern = "mm/dd/yyyy")
+    LocalDate current;
+
+    @ManyToOne(cascade = CascadeType.ALL)
+    Assignee assignee;
 
     public ToDo(String title){
         this.title = title;
         this.isUrgent = false;
         this.isDone = false;
+        this.create = LocalDate.now();
+        this.current = LocalDate.now();
     }
 
     public ToDo(String title , Boolean urgent , Boolean done ){
@@ -30,13 +42,20 @@ public class ToDo {
     public ToDo(){
         isDone =false;
         isUrgent = false;
+        this.create = LocalDate.now();
+        this.current = LocalDate.now();
     }
+
+    /*public ToDo(){
+        this.create = LocalDate.now();
+        this.current = LocalDate.now();
+    }*/
 
     public long getId() {
         return id;
     }
 
-    public void setId(int id) {
+    public void setId(long id) {
         this.id = id;
     }
 
@@ -62,6 +81,30 @@ public class ToDo {
 
     public void setDone(boolean done) {
         isDone = done;
+    }
+
+    public Assignee getAssignee() {
+        return assignee;
+    }
+
+    public void setAssignee(Assignee assignee) {
+        this.assignee = assignee;
+    }
+
+    public LocalDate getCreate() {
+        return create;
+    }
+
+    public void setCreate(LocalDate create) {
+        this.create = create;
+    }
+
+    public LocalDate getCurrent() {
+        return current;
+    }
+
+    public void setCurrent(LocalDate current) {
+        this.current = current;
     }
 
     @Override
