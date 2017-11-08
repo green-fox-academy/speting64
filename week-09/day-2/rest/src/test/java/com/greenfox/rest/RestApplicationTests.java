@@ -96,4 +96,24 @@ public class RestApplicationTests {
 				.andExpect(status().isOk())
 				.andExpect(jsonPath("$.appended", is("kutya")));
 	}
+
+	@Test
+	public void doUntilTestSuccessfulSum() throws Exception {
+		mockMvc.perform(post("/dountil/sum")
+				.contentType(MediaType.APPLICATION_JSON)
+				.content("{\"until\": \"5\"}"))
+				.andExpect(status().isOk())
+				.andExpect(jsonPath("$.result", is(15)));
+	}
+
+	@Test
+	public void doUntilTestSuccessfulFactorial() throws Exception {
+		mockMvc.perform(post("/dountil/factor")
+				.contentType(MediaType.APPLICATION_JSON)
+				.content("{\"until\": \"5\"}"))
+				.andExpect(status().isOk())
+				.andExpect(jsonPath("$.result", is(120)));
+	}
+
+
 }
