@@ -55,4 +55,12 @@ public class GuardianControllerTest {
                 .andExpect(jsonPath("$.translated", is("I am Groot!")));
     }
 
+    @Test
+    public void grootSpeechTestFailed() throws Exception {
+        mockMvc.perform(get("/groot")
+                .contentType(MediaType.APPLICATION_JSON))
+                .andExpect(status().isOk())
+                .andExpect(jsonPath("$.error", is("I am Groot")));
+
+    }
 }
