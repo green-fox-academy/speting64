@@ -3,15 +3,15 @@ package com.greenfox.rest.model;
 import org.springframework.stereotype.Component;
 
 @Component
-public class Error {
+public class ErrorMessage {
 
     String error;
 
-    public Error(){
+    public ErrorMessage(){
 
     }
 
-    public Error(String error) {
+    public ErrorMessage(String error) {
         this.error = error;
     }
 

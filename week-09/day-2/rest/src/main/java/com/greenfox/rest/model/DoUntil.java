@@ -7,8 +7,6 @@ import org.springframework.stereotype.Component;
 @Getter
 public class DoUntil {
 
-
-
     //int until;
     int result;
     //String what;

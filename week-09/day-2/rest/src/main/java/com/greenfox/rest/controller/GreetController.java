@@ -1,7 +1,7 @@
 package com.greenfox.rest.controller;
 
 import com.greenfox.rest.model.Greeter;
-import com.greenfox.rest.model.Error;
+import com.greenfox.rest.model.ErrorMessage;
 import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.web.bind.MissingServletRequestParameterException;
 import org.springframework.web.bind.annotation.ExceptionHandler;
@@ -16,7 +16,7 @@ public class GreetController {
     Greeter greeter;
 
     @Autowired
-    Error error;
+    ErrorMessage errorMessage;
 
     @GetMapping("/greeter")
     public Greeter greeter(@RequestParam(value="name") String name , @RequestParam(value="title") String title ){
@@ -26,9 +26,9 @@ public class GreetController {
     }
 
     @ExceptionHandler(Exception.class)
-    public Error errorMessage(MissingServletRequestParameterException e){
+    public ErrorMessage errorMessage(MissingServletRequestParameterException e){
         String parameterName=e.getParameterName();
-        error.setError("Please provide a "+ parameterName + "!");
-        return error;
+        errorMessage.setError("Please provide a "+ parameterName + "!");
+        return errorMessage;
     }
 }

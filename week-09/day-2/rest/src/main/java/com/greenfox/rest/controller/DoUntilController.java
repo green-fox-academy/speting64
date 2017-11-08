@@ -1,6 +1,7 @@
 package com.greenfox.rest.controller;
 
 import com.greenfox.rest.model.DoUntil;
+import com.greenfox.rest.model.ErrorMessage;
 import com.greenfox.rest.model.Until;
 import jdk.nashorn.internal.objects.annotations.Getter;
 import org.springframework.beans.factory.annotation.Autowired;
@@ -13,7 +14,12 @@ public class DoUntilController {
 
 
     @RequestMapping(value = "/dountil/{what}" , method = RequestMethod.POST)
-    public DoUntil doUntilNumber(@PathVariable("what") String what , @RequestBody Until until){
+    public Object doUntilNumber(@PathVariable("what") String what , @RequestBody Until until){
+        ErrorMessage e = new ErrorMessage();
+        if(until.getUntil() == null){
+            e.setError("Please provide a number!");
+            return e;
+        }
         return new DoUntil(what,until.getUntil());
     }
 }

@@ -7,17 +7,17 @@ import lombok.Setter;
 @Setter
 public class Until {
 
-    public int getUntil() {
+    public Integer getUntil() {
         return until;
     }
 
-    int until;
+    Integer until;
 
     public Until(){
 
     }
 
-    public Until(int until){
+    public Until(Integer until){
         this.until=until;
     }
 }
