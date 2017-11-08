@@ -98,7 +98,15 @@ public class RestApplicationTests {
 	}
 
 	@Test
-	public void doUntilTestSuccessfulSum() throws Exception {
+	public void appendTestFailed() throws Exception {
+		mockMvc.perform(get("/appenda")
+				.contentType(MediaType.APPLICATION_JSON))
+				.andExpect(status().isNotFound());
+
+	}
+
+	@Test
+	public void doUntilTestSuccessfulForSum() throws Exception {
 		mockMvc.perform(post("/dountil/sum")
 				.contentType(MediaType.APPLICATION_JSON)
 				.content("{\"until\": \"5\"}"))
@@ -107,13 +115,11 @@ public class RestApplicationTests {
 	}
 
 	@Test
-	public void doUntilTestSuccessfulFactorial() throws Exception {
+	public void doUntilTestSuccessfulForFactorial() throws Exception {
 		mockMvc.perform(post("/dountil/factor")
 				.contentType(MediaType.APPLICATION_JSON)
 				.content("{\"until\": \"5\"}"))
 				.andExpect(status().isOk())
 				.andExpect(jsonPath("$.result", is(120)));
 	}
-
-
 }

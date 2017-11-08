@@ -7,17 +7,7 @@ import org.springframework.stereotype.Component;
 @Getter
 public class DoUntil {
 
-    //int until;
     int result;
-    //String what;
-
-   /* public void setUntil(int until) {
-        this.until = until;
-    }
-
-    public void setWhat(String what) {
-        this.what = what;
-    }*/
 
     public DoUntil(){
 
