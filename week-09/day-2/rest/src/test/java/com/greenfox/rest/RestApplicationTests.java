@@ -89,5 +89,11 @@ public class RestApplicationTests {
 				.andExpect(jsonPath("$.error", is("Please provide a name!")));
 	}
 
-
+	@Test
+	public void appendTestSuccessful() throws Exception {
+		mockMvc.perform(get("/appenda/kuty")
+				.contentType(MediaType.APPLICATION_JSON))
+				.andExpect(status().isOk())
+				.andExpect(jsonPath("$.appended", is("kutya")));
+	}
 }
