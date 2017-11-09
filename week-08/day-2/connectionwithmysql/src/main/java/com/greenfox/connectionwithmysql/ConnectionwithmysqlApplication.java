@@ -29,7 +29,7 @@ public class ConnectionwithmysqlApplication implements CommandLineRunner {
 		//todoRepository.save(new ToDo("I have to master Java Persistent API"));
 		//todoRepository.save(new ToDo("I have to use H2 database"));
 
-		assigneeRepository.save(new Assignee("Andris","andris12@greenfox.com"));
+		//assigneeRepository.save(new Assignee("Andris","andris12@greenfox.com"));
 
 	}
 }
