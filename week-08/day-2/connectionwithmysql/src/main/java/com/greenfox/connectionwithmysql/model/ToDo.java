@@ -3,9 +3,12 @@ package com.greenfox.connectionwithmysql.model;
 import org.springframework.format.annotation.DateTimeFormat;
 
 import javax.persistence.*;
+import java.sql.Time;
+import java.sql.Timestamp;
 import java.time.LocalDate;
 
 @Entity
+@Table(name="todo")
 public class ToDo {
 
     @Id
@@ -13,43 +16,33 @@ public class ToDo {
     long id;
 
     private String title;
-    boolean isUrgent;
-    boolean isDone;
 
-    @DateTimeFormat(pattern = "mm/dd/yyyy")
-    LocalDate create;
+    boolean urgent;
+    boolean done;
 
-    @DateTimeFormat(pattern = "mm/dd/yyyy")
-    LocalDate current;
+    Timestamp create2;
+    Timestamp current2;
 
-    @ManyToOne(cascade = CascadeType.ALL)
+    @ManyToOne(fetch = FetchType.EAGER)
     Assignee assignee;
 
-    public ToDo(String title){
+    public ToDo(String title ){
         this.title = title;
-        this.isUrgent = false;
-        this.isDone = false;
-        this.create = LocalDate.now();
-        this.current = LocalDate.now();
-    }
-
-    public ToDo(String title , Boolean urgent , Boolean done ){
-        this.title = title;
-        isUrgent = urgent;
-        isDone = done;
+        this.urgent = false;
+        this.done = false;
+        this.create2 = new Timestamp(System.currentTimeMillis());
+        this.current2 = new Timestamp(System.currentTimeMillis());
     }
 
     public ToDo(){
-        isDone =false;
-        isUrgent = false;
-        this.create = LocalDate.now();
-        this.current = LocalDate.now();
+
+        this.title = "";
+        done =false;
+        urgent = false;
+        this.create2 = new Timestamp(System.currentTimeMillis());
+        this.current2 = new Timestamp(System.currentTimeMillis());
     }
 
-    /*public ToDo(){
-        this.create = LocalDate.now();
-        this.current = LocalDate.now();
-    }*/
 
     public long getId() {
         return id;
@@ -68,19 +61,35 @@ public class ToDo {
     }
 
     public boolean isUrgent() {
-        return isUrgent;
+        return urgent;
     }
 
     public void setUrgent(boolean urgent) {
-        isUrgent = urgent;
+        this.urgent = urgent;
+    }
+
+    public Timestamp getCreate2() {
+        return create2;
+    }
+
+    public void setCreate2(Timestamp create2) {
+        this.create2 = create2;
+    }
+
+    public Timestamp getCurrent() {
+        return current2;
+    }
+
+    public void setCurrent(Timestamp current) {
+        this.current2 = current2;
     }
 
     public boolean isDone() {
-        return isDone;
+        return done;
     }
 
     public void setDone(boolean done) {
-        isDone = done;
+        this.done = done;
     }
 
     public Assignee getAssignee() {
@@ -91,21 +100,6 @@ public class ToDo {
         this.assignee = assignee;
     }
 
-    public LocalDate getCreate() {
-        return create;
-    }
-
-    public void setCreate(LocalDate create) {
-        this.create = create;
-    }
-
-    public LocalDate getCurrent() {
-        return current;
-    }
-
-    public void setCurrent(LocalDate current) {
-        this.current = current;
-    }
 
     @Override
     public String toString() {

@@ -9,6 +9,7 @@ import java.util.List;
 public interface ToDoRepository extends CrudRepository<ToDo, Long> {
 
     List<ToDo> findAllByTitleIsLike(String title);
-    List<ToDo> findAllByAssigneeName(String name);
+    List<ToDo> findAllByAssignee(String name);
+    //List<ToDo> findTitleAndAssignee
 
 }

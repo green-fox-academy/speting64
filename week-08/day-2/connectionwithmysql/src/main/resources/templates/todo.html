@@ -2,11 +2,20 @@
 <html lang="en" xmlns:th="http://www.thymeleaf.org">
 <head>
     <meta charset="UTF-8"/>
-    <link rel="stylesheet" th:href="@{/style.css}"/>
+    <link rel="stylesheet" href="https://maxcdn.bootstrapcdn.com/bootstrap/3.3.7/css/bootstrap.min.css"/>
+    <!--<link rel="stylesheet" th:href="@{/style.css}"/>-->
     <title>Title</title>
 </head>
 <body>
-<h1> Todos for today </h1>
+
+<nav class="navbar navbar-inverse">
+    <div class="container-fluid">
+        <div class="navbar-header">
+            <a class="navbar-brand" href="#">Todo WebApp</a>
+        </div>
+    </div>
+</nav>
+<h1 class="Page Header"> Todos for today </h1>
 
 <a href ="/todo/create"> Add new Todo</a>
 <a href ="/assignees/"> List of Assignees</a>
@@ -28,10 +37,8 @@
         <td th:text="${todotable.title}"></td>
         <td th:text="${todotable.isDone() ? 'TRUE' : 'FALSE'}"></td>
         <td th:text="${todotable.isUrgent() ? 'TRUE' : 'FALSE'}"></td>
-        <td th:href="@{'/todo/filter/{assignees}'(assignee=${todotable.assignee})}"
-            th:text="${todotable.assignee}"></a></td>
-        <td th:text="${todolist.create}"/>
-        <td th:text="${todolist.current}"/>
+        <td th:text="${todotable.create2}"></td>
+        <td th:text="${todotable.current}"></td>>
         <td><a th:href="@{/todo/{id}/delete(id=${todotable.id})}">Delete</a> </td>
         <td><a th:href="'/todo/' + ${todotable.id} + '/edit'">Edit</a></td>
     </tr>

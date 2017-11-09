@@ -29,13 +29,13 @@ public class ToDoController {
         return "todo";
     }
 
-    @GetMapping("/filter/{assignees}")
-    public String filter(Model model, @PathVariable String assignee){
+   /* @GetMapping("/filter/{assignees}")
+    public String filter(Model model, @RequestParam(required = false) String assignee){
         if(assignee != null){
-            model.addAttribute("todolist" , todoRepository.findAllByAssigneeName(assignee));
+            model.addAttribute("todolist" , todoRepository.findAllByAssignee(assignee));
         }
         return "todo";
-    }
+    }*/
 
     @GetMapping("/create")
     public String create(Model model) {

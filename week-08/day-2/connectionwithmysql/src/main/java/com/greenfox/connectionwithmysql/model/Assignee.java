@@ -14,6 +14,10 @@ public class Assignee {
     String name;
     String email;
 
+    @OneToMany(mappedBy = "assignee")
+    List<ToDo> todos;
+
+
     public Assignee(){
     }
 
