@@ -35,8 +35,8 @@
         <th>Urgent</th>
         <th>Created</th>
         <th>Current</th>
-        <th>DELETE</th>
-        <th>EDIT</th>
+        <th></th>
+        <th></th>
 
     </tr>
     <tr th:each="todotable : ${todolist}">
@@ -45,9 +45,10 @@
         <td th:text="${todotable.isDone() ? 'TRUE' : 'FALSE'}"></td>
         <td th:text="${todotable.isUrgent() ? 'TRUE' : 'FALSE'}"></td>
         <td th:text="${todotable.create2}"></td>
-        <td th:text="${todotable.current}"></td>>
-        <td><a th:href="@{/todo/{id}/delete(id=${todotable.id})}">Delete</a> </td>
-        <td><a th:href="'/todo/' + ${todotable.id} + '/edit'">Edit</a></td>
+        <td th:text="${todotable.current}"></td>
+        <td><a th:href="@{/todo/{id}/delete(id=${todotable.id})}" role="button" class="btn btn-danger">Delete</a></td>
+        <td><a th:href="'/todo/' + ${todotable.id} + '/edit'" role="button" class="btn btn-primary">Edit</a></td>
+
     </tr>
 </table>
 </div>
