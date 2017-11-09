@@ -36,18 +36,27 @@
         <th>Current</th>
         <th></th>
         <th></th>
+        <th>Assignee</th>
 
     </tr>
     <tr th:each="todotable : ${todolist}">
         <td th:text="${todotable.id}"></td>
         <td th:text="${todotable.title}"></td>
-        <td th:text="${todotable.isDone() ? 'NO' : 'YES'}"></td>
-        <td th:text="${todotable.isUrgent() ? 'NO' : 'YES'}"></td>
+        <td> <span
+                th:class="${todotable.isDone()} ? 'glyphicon glyphicon-ok' : 'glyphicon glyphicon-remove'">
+
+        </span>
+        </td>
+        <td><span
+                th:class="${todotable.isUrgent()} ? 'glyphicon glyphicon-ok' : 'glyphicon glyphicon-remove'">
+
+        </span>
+        </td>
         <td th:text="${todotable.create2}"></td>
         <td th:text="${todotable.current}"></td>
         <td><a th:href="@{/todo/{id}/delete(id=${todotable.id})}" role="button" class="btn btn-danger">Delete</a></td>
         <td><a th:href="'/todo/' + ${todotable.id} + '/edit'" role="button" class="btn btn-primary">Edit</a></td>
-
+        <td th:text="${todotable.getAssignee()} != null ? ${todotable.getAssignee().getName()} : 'Noone assigned'"></td>
     </tr>
 </table>
 </div>

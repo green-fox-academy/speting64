@@ -1,8 +1,11 @@
 <!DOCTYPE html>
 <html lang="en" xmlns:th="http://www.thymeleaf.org">
+
 <head>
     <meta charset="UTF-8"/>
+    <link rel="stylesheet" href="https://maxcdn.bootstrapcdn.com/bootstrap/3.3.7/css/bootstrap.min.css"/>
     <title>Edit Assignee</title>
+
 </head>
 <body>
 <h2>Edit an assignee</h2>
@@ -11,7 +14,7 @@
     Name<input type="text" th:field="*{name}"/>
     Email<input type="text" th:field="*{email}"/>
     <button type="submit" value="update">Update</button>
-    <a href="/assignees/">cancel</a>
+    <a href="/assignees/"  role="button" class="btn btn-danger">cancel</a>
 </form>
 </body>
 </html>

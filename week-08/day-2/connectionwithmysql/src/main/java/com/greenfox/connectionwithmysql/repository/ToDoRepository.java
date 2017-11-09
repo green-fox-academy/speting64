@@ -10,6 +10,4 @@ public interface ToDoRepository extends CrudRepository<ToDo, Long> {
 
     List<ToDo> findAllByTitleIsLike(String title);
     List<ToDo> findAllByAssignee(String name);
-    //List<ToDo> findTitleAndAssignee
-
 }
