@@ -15,12 +15,19 @@
         </div>
     </div>
 </nav>
-<h1 class="Page Header"> Todos for today </h1>
+<div class="container">
+    <div class="jumbotron">
+    <h1 class="Page Header"> Todos for today </h1>
+    </div>
+</div>
 
-<a href ="/todo/create"> Add new Todo</a>
-<a href ="/assignees/"> List of Assignees</a>
+<div class="btn-group btn-group-justified">
+<a href ="/todo/create" class="btn btn-warning"> Add new Todo</a>
+<a href ="/assignees/" class="btn btn-warning"> List of Assignees</a>
+</div>
 
-<table width="500" border="1">
+<div class="container">
+<table class="table">
     <tr>
         <th>Id</th>
         <th>Todo</th>
@@ -43,6 +50,7 @@
         <td><a th:href="'/todo/' + ${todotable.id} + '/edit'">Edit</a></td>
     </tr>
 </table>
+</div>
 
 <form th:action="@{/todo/list}" th:object="${search}" method="get">
     <input type="search" name="search" placeholder="Search" />
