@@ -40,7 +40,7 @@ The CLI will be launched by entering the **_"eb"_** command
 
 To get started ,type "eb init". Then type "eb create" and "eb open"
 
-<h2>**eb init**<h2>
+<h2>eb init</h2>
 
  Run **"eb init"** in your application's project directory to configure the EB CLI and your project.
 
@@ -68,7 +68,7 @@ Choose **yes** to assign an SSH key pair to the instances in your Elastic Beanst
 
 You have completed the configuration of your project folder. The application will be deployed after the enviroment is defined.
 
-<h2>**eb create**<h2>
+<h2>eb create</h2>
 
 **"eb create"** sets up the enviroment and deploys an application version
 
