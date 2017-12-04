@@ -21,7 +21,11 @@ public class Tricks {
         tricks.add(trick);
     }
 
-    public List<String> getTricks() {
+    public List<String> getTricks()
+     {
         return tricks;
     }
+
 }
+
+

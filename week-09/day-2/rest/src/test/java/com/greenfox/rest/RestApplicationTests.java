@@ -124,7 +124,7 @@ public class RestApplicationTests {
 	}
 
 	@Test
-	public void doUntilTestFailed() throws Exception {
+	public void doUntilTestFailedForPageNotFound() throws Exception {
 		mockMvc.perform(post("/dountil/")
 				.contentType(MediaType.APPLICATION_JSON)
 				.content(""))
@@ -133,10 +133,18 @@ public class RestApplicationTests {
 
 	@Test
 	public void doUntilTestFailedForNoNumbers() throws Exception {
-		mockMvc.perform(post("/dountil/sum")
+		mockMvc.perform(post("/dountil/sum/")
 				.contentType(MediaType.APPLICATION_JSON)
-				.content(""))
+				.content("{\"until\": \"null\"}"))
 				.andExpect(status().isOk())
+				.andExpect(content().contentType(contentType))
 				.andExpect(jsonPath("$.error",is("Please provide a number!")));
+	}
+
+	@Test
+	public void doUntilTestFailedForBadRequest() throws Exception {
+		mockMvc.perform(post("/dountil/sum/")
+				.contentType(MediaType.APPLICATION_JSON))
+				.andExpect(status().isBadRequest());
 	}
 }

@@ -23,7 +23,6 @@ public class DoUntil {
         }else{
             result=factor(until);
         }
-
     }
 
     public void sum(int until){

@@ -5,23 +5,15 @@ import org.springframework.stereotype.Service;
 @Service
 public class Arrow {
 
-    double distance;
-    double time;
-    double speed;
-
+    private Double distance;
+    private Double time;
+    private Double speed;
 
     public Arrow(){
 
     }
 
-    /*public Arrow(double distance,double time){
-
-        this.distance=distance;
-        this.time = time;
-        this.speed = distance/time;
-    }*/
-
-    public double getDistance() {
+    public Double getDistance() {
         return distance;
     }
 
@@ -29,7 +21,7 @@ public class Arrow {
         this.distance = distance;
     }
 
-    public double getTime() {
+    public Double getTime() {
         return time;
     }
 
@@ -37,11 +29,7 @@ public class Arrow {
         this.time = time;
     }
 
-    public double getSpeed() {
+    public Double getSpeed() {
         return this.distance/this.time;
     }
-
-   /* public void setSpeed(double speed){
-        this.speed = speed;
-    }*/
 }

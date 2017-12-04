@@ -12,7 +12,6 @@ import org.springframework.web.bind.annotation.*;
 @RestController
 public class DoUntilController {
 
-
     @RequestMapping(value = "/dountil/{what}" , method = RequestMethod.POST)
     public Object doUntilNumber(@PathVariable("what") String what , @RequestBody Until until){
         ErrorMessage e = new ErrorMessage();

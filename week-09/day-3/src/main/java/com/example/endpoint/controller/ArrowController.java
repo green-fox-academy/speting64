@@ -4,10 +4,8 @@ import com.example.endpoint.model.Arrow;
 import com.example.endpoint.model.ErrorMessage;
 
 import org.springframework.beans.factory.annotation.Autowired;
-import org.springframework.web.bind.annotation.RequestMapping;
-import org.springframework.web.bind.annotation.RequestMethod;
-import org.springframework.web.bind.annotation.RequestParam;
-import org.springframework.web.bind.annotation.RestController;
+import org.springframework.web.bind.MissingServletRequestParameterException;
+import org.springframework.web.bind.annotation.*;
 
 @RestController
 public class ArrowController {
@@ -23,6 +21,13 @@ public class ArrowController {
         arrow.setDistance(distance);
         arrow.setTime(time);
         return arrow;
+    }
+
+    @ExceptionHandler(Exception.class)
+    public ErrorMessage arrowError(MissingServletRequestParameterException e){
+        String parameterName = e.getParameterName();
+        errorMessage.setError("No parameters, Yondu's arrow sleeps in his slot");
+        return errorMessage;
     }
 
 }

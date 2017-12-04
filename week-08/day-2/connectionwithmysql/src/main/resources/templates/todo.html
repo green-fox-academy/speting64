@@ -56,7 +56,7 @@
         <td th:text="${todotable.current}"></td>
         <td><a th:href="@{/todo/{id}/delete(id=${todotable.id})}" role="button" class="btn btn-danger">Delete</a></td>
         <td><a th:href="'/todo/' + ${todotable.id} + '/edit'" role="button" class="btn btn-primary">Edit</a></td>
-        <td th:text="${todotable.getAssignee()} != null ? ${todotable.getAssignee().getName()} : 'Noone assigned'"></td>
+        <td th:text="${todotable.getAssignee()} != null ? ${todotable.getAssignee().getName()} : 'No one there'"></td>
     </tr>
 </table>
 </div>
